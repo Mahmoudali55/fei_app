@@ -1,4 +1,6 @@
+
 import 'package:fei_app/helper/utils/app_colors.dart';
+import 'package:fei_app/helper/utils/app_textstyle.dart';
 import 'package:flutter/material.dart';
 
 class CustomDescription extends StatelessWidget {
@@ -6,11 +8,11 @@ class CustomDescription extends StatelessWidget {
     super.key,
     required this.text,
     required this.suptext,
-    required this.icon,
+    required this.image,
   });
   final String text;
   final String suptext;
-  final IconData icon;
+  final String image;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,12 +24,12 @@ class CustomDescription extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(text),
+          Text(text,style: AppTextStyle.textStyle14semiBold.copyWith(color: const Color(0xff707070)),),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(icon),
-              Text(suptext),
+              Image.asset(image),
+              Text(suptext,style: AppTextStyle.textStyle18regular,),
             ],
           )
         ],

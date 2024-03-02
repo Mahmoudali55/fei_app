@@ -9,29 +9,38 @@ class CustomPharmacies extends StatelessWidget {
   final CustomHomeModel customHomeModel;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 127.h,
-      width: 127.w,
-      margin: const EdgeInsets.all(10),
-      decoration: BoxDecoration(
-          borderRadius: const BorderRadius.all(Radius.circular(15)),
-          color: AppColors.backgroundColor,
-          border: Border.all(color: AppColors.primaryColor, width: 2),
-          shape: BoxShape.rectangle),
-      child:
-          Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-        Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              color: AppColors.backgroundColor,
-              border: Border.all(color: AppColors.hintColor, width: 3),
-            ),
-            child: Image.asset(customHomeModel.image, height: 74, width: 77)),
-        Text(
-          customHomeModel.title,
-          style: AppTextStyle.textStyle13Semibold,
-        ),
-      ]),
+    return InkWell(
+      onTap: customHomeModel.onTap,
+      child: Container(
+        height: customHomeModel.height,
+        width: customHomeModel.width,
+        margin: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+            borderRadius: const BorderRadius.all(Radius.circular(15)),
+            color: AppColors.backgroundColor,
+            border: customHomeModel.border,
+            shape: BoxShape.rectangle),
+        child:
+            Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+          Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                color: AppColors.backgroundColor,
+                // border: Border.all(color: AppColors.backgroundColor, width: .4),
+              ),
+              child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16),
+                    border: Border.all(color: AppColors.hintColor, width: 2),
+                  ),
+                  child: Image.asset(customHomeModel.image,
+                      height: 74, width: 77))),
+          Text(
+            customHomeModel.title,
+            style: AppTextStyle.textStyle13Semibold,
+          ),
+        ]),
+      ),
     );
   }
 }

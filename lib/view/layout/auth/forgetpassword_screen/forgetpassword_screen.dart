@@ -1,4 +1,5 @@
 import 'package:fei_app/helper/routes/routes.dart';
+import 'package:fei_app/helper/utils/app_colors.dart';
 import 'package:fei_app/helper/utils/app_images.dart';
 import 'package:fei_app/helper/utils/app_textstyle.dart';
 import 'package:fei_app/helper/utils/app_word.dart';
@@ -43,12 +44,15 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
               controller: emailController,
               hintText: 'Enter your Email',
               inputType: TextInputType.emailAddress,
+              fillColor: AppColors.hintColor,
               textFieldValidType: TextFieldValidatorType.Email,
               currentFocusNode: email,
               nextFocusNode: email),
           const SizedBox(height: 60),
           CustomButton(
             title: AppWords.send.tr,
+            style: AppTextStyle.textStyle24medium
+                .copyWith(color: AppColors.backgroundColor),
             onPress: () {
               goToScreen(screenNames: ScreenNames.restPasswordScreen);
             },

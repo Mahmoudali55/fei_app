@@ -2,11 +2,14 @@ import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:fei_app/helper/routes/routes.dart';
 import 'package:fei_app/helper/utils/app_colors.dart';
 import 'package:fei_app/helper/utils/app_images.dart';
-import 'package:fei_app/view/layout/chats_screen/chat_screen.dart';
+
+import 'package:fei_app/view/layout/chats_screen/chats_screen/chat_screen.dart';
 import 'package:fei_app/view/layout/home_screen/home_screen.dart';
 import 'package:fei_app/view/layout/labs_screen/labs_screen.dart';
-import 'package:fei_app/view/layout/meun_screen/meun_screen.dart';
+
 import 'package:fei_app/view/layout/profile_screen/profile_screen.dart';
+import 'package:fei_app/view/layout/profile_screen/scan_screen.dart';
+import 'package:fei_app/view/layout/profile_screen/widgets/Profile_screen_inbourding.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavigationBarScreen extends StatefulWidget {
@@ -23,13 +26,14 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
     const HomeScreen(),
     const ChatScreen(),
     const LabsScreen(),
-    const MeunScreen(),
-    const ProfileScreen(),
+    const ScanScreen(),
+    const ProfileScreenOnboarding(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: _pages[_selectedIndex],
       bottomNavigationBar: ConvexAppBar(
           elevation: 0,
@@ -85,11 +89,11 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
                         radius: 5,
                         backgroundColor: AppColors.backgroundColor,
                         child: Image.asset(
-                          AppImages.menu,
+                          AppImages.camerascan,
                           color: AppColors.textColor,
                         ))
                     : Image.asset(
-                        AppImages.menu,
+                        AppImages.camerascan,
                         color: AppColors.textColor,
                       )),
             TabItem(

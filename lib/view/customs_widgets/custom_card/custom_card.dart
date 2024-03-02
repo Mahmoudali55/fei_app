@@ -17,18 +17,21 @@ class CustomCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 10,
-      shadowColor: AppColors.secondaryColor,
       surfaceTintColor: AppColors.backgroundColor,
-      borderOnForeground: true,
-      color: AppColors.backgroundColor,
+      //borderOnForeground: true,
+      shadowColor: AppColors.secondaryColor,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+      ),
+      //color: AppColors.backgroundColor,
       margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(16),
             border: Border.all(
               color: AppColors.secondaryColor,
-              width: 0.w,
+              width: 1.5.w,
             )),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -36,6 +39,7 @@ class CustomCard extends StatelessWidget {
             Row(children: [
               Image.asset(
                 cardModel.image,
+                fit: BoxFit.fill,
                 height: 80.h,
               ),
               SizedBox(
@@ -75,15 +79,20 @@ class CustomCard extends StatelessWidget {
                             Icons.star,
                             color: Colors.amber,
                           ),
-                          const SizedBox(
-                            width: 170,
+                          SizedBox(
+                            width: 180.w,
                           ),
                           Container(
                             decoration: const BoxDecoration(
                               color: AppColors.primaryColor,
                               shape: BoxShape.circle,
                             ),
-                            child: const Icon(Icons.add),
+                            child: InkWell(
+                                onTap: cardModel.onTap,
+                                child: const Icon(
+                                  Icons.add,
+                                  color: AppColors.backgroundColor,
+                                )),
                           )
                         ],
                       ),

@@ -25,9 +25,9 @@ class CustomOnbourding extends StatelessWidget {
             margin: const EdgeInsets.all(4),
             width: 12,
             height: 12,
-            decoration: const ShapeDecoration(
-              color: AppColors.hintColor,
-              shape: CircleBorder(),
+            decoration: ShapeDecoration(
+              color: Colors.grey[400],
+              shape: const CircleBorder(),
             ),
           );
   }

@@ -46,14 +46,15 @@ class Fei extends StatelessWidget {
         useInheritedMediaQuery: true,
         designSize: const Size(428, 926),
         builder: (context, widget) => GetMaterialApp(
-          locale: const Locale('en'),
+          locale: const Locale('ar'),
           localizationsDelegates: const [
             GlobalMaterialLocalizations.delegate,
             GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
           ],
           debugShowCheckedModeBanner: false,
           theme: ThemeData(),
-          initialRoute: ScreenNames.bottomNavigationBar,
+          initialRoute: ScreenNames.logoScreen,
           routes: appRoutes(context),
           fallbackLocale: currentLocale,
           translations: Lang(),

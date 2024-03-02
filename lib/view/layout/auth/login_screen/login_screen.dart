@@ -8,6 +8,8 @@ import 'package:fei_app/view/customs_widgets/custom_button/back_button.dart';
 import 'package:fei_app/view/customs_widgets/custom_button/custom_button.dart';
 import 'package:fei_app/view/customs_widgets/custom_logo/Custom_logo.dart';
 import 'package:fei_app/view/customs_widgets/custom_text_form_filed/custom_text_form.dart';
+import 'package:fei_app/view/layout/auth/register_screen/register_screen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_utils/get_utils.dart';
@@ -20,6 +22,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  bool isActive = false;
   bool isAccepted = true;
   var username = FocusNode();
   var passFocus = FocusNode();
@@ -35,7 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
         scrollDirection: Axis.vertical,
         child: Padding(
             padding: const EdgeInsets.symmetric(
-              horizontal: 20,
+              horizontal: 15,
             ),
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -54,10 +57,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   onTap: () {},
                   controller: usernameController,
                   hintText: 'Enter your username',
+                  fillColor: AppColors.hintColor,
                   inputType: TextInputType.emailAddress,
                   textFieldValidType: TextFieldValidatorType.Name,
                   currentFocusNode: username,
                   nextFocusNode: passFocus),
+              const SizedBox(
+                height: 5,
+              ),
               Text(
                 AppWords.password.tr,
                 style: AppTextStyle.textStyle20medium,
@@ -66,12 +73,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   onTap: () {},
                   controller: passwordController,
                   hintText: 'Enter your password',
+                  fillColor: AppColors.hintColor,
                   inputType: TextInputType.visiblePassword,
-                  obscureText: isAccepted
-                      ? true
-                      : !isAccepted
-                          ? false
-                          : true,
+                  obscureText: isAccepted,
                   textFieldValidType: TextFieldValidatorType.Password,
                   suffixIcon: InkWell(
                       onTap: () {
@@ -80,32 +84,34 @@ class _LoginScreenState extends State<LoginScreen> {
                         });
                       },
                       child: isAccepted
-                          ? const Icon(Icons.visibility)
-                          : const Icon(Icons.visibility_off)),
+                          ? const Icon(
+                              Icons.visibility_off,
+                              color: Colors.grey,
+                            )
+                          : const Icon(Icons.visibility)),
                   currentFocusNode: passFocus,
                   nextFocusNode: passFocus),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Switch(
-                    activeColor: AppColors.backgroundColor,
-                    activeTrackColor: AppColors.primaryColor,
-                    value: isAccepted,
-                    onChanged: (value) {
-                      setState(() {
-                        isAccepted = value;
-                      });
-                    },
+                  Transform.scale(
+                    scale: .6,
+                    alignment: Alignment.centerLeft,
+                    child: CupertinoSwitch(
+                      value: isActive,
+                      onChanged: (bool value) {
+                        setState(() {
+                          isActive = value;
+                        });
+                      },
+                    ),
+                  ),
 
-                    splashRadius:
-                        20, // Increase splash radius for touch feedback
-                    materialTapTargetSize: MaterialTapTargetSize
-                        .shrinkWrap, // Reduce tap target size
-                  ),
                   Text(AppWords.rememberme.tr),
-                  SizedBox(
-                    width: 40.w,
-                  ),
+                  const Spacer(),
+                  // SizedBox(
+                  //   width: 85.w,
+                  // ),
                   GestureDetector(
                     onTap: () {
                       goToScreen(screenNames: ScreenNames.forgetpasswordScreen);
@@ -115,13 +121,15 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ],
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 30),
               CustomButton(
                   backgroundColor: AppColors.primaryColor,
                   title: AppWords.signin.tr,
+                  style: AppTextStyle.textStyle24medium
+                      .copyWith(color: AppColors.backgroundColor),
                   titleFontSize: 24,
                   onPress: () {
-                    goToScreen(screenNames: ScreenNames.homeScreen);
+                    goToScreen(screenNames: ScreenNames.bottomNavigationBar);
                   }),
               const SizedBox(height: 10),
               Row(
@@ -141,15 +149,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ],
               ),
-              SizedBox(
-                height: 20.h,
-              ),
-              const Divider(
-                height: 10,
-                endIndent: 60,
-                indent: 60,
-                thickness: 5,
-              )
             ])),
       ),
     );

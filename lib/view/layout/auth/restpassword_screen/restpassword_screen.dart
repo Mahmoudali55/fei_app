@@ -1,4 +1,5 @@
 import 'package:fei_app/helper/routes/routes.dart';
+import 'package:fei_app/helper/utils/app_colors.dart';
 import 'package:fei_app/helper/utils/app_images.dart';
 import 'package:fei_app/helper/utils/app_textstyle.dart';
 import 'package:fei_app/helper/utils/app_word.dart';
@@ -17,7 +18,8 @@ class RestPasswordScreen extends StatefulWidget {
 }
 
 class _RestPasswordScreenState extends State<RestPasswordScreen> {
-  bool isAccepted = false;
+  bool isAccepted = true;
+  bool confirmAccepted = true;
 
   var confirmfocus = FocusNode();
 
@@ -34,64 +36,81 @@ class _RestPasswordScreenState extends State<RestPasswordScreen> {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            LogeScreen(
-                image: AppImages.restpassword,
-                title: AppWords.reset.tr,
-                style: AppTextStyle.textStyle20regular),
-            const SizedBox(height: 40),
-            Text(
-              AppWords.password.tr,
-              style: AppTextStyle.textStyle20medium,
-            ),
-            CustomTextField(
-                onTap: () {},
-                controller: passwordController,
-                hintText: 'Enter your password',
-                inputType: TextInputType.visiblePassword,
-                obscureText: true,
-                textFieldValidType: TextFieldValidatorType.Password,
-                suffixIcon: InkWell(
-                    onTap: () {
-                      isAccepted = !isAccepted;
-                    },
-                    child: isAccepted
-                        ? const Icon(Icons.visibility)
-                        : const Icon(Icons.visibility_off)),
-                currentFocusNode: passFocus,
-                nextFocusNode: passFocus),
-            Text(
-              AppWords.confirmpassword.tr,
-              style: AppTextStyle.textStyle20medium,
-            ),
-            CustomTextField(
-                onTap: () {},
-                controller: passwordController,
-                hintText: 'Enter your password',
-                inputType: TextInputType.visiblePassword,
-                obscureText: true,
-                textFieldValidType: TextFieldValidatorType.Password,
-                suffixIcon: InkWell(
-                    onTap: () {
-                      isAccepted = !isAccepted;
-                    },
-                    child: isAccepted
-                        ? const Icon(Icons.visibility)
-                        : const Icon(Icons.visibility_off)),
-                currentFocusNode: passFocus,
-                nextFocusNode: passFocus),
-            const SizedBox(
-              height: 30,
-            ),
-            CustomButton(
-              title: AppWords.confirm.tr,
-              onPress: () {
-                goToScreen(screenNames: ScreenNames.restPasswordScreen);
-              },
-            )
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              LogeScreen(
+                  image: AppImages.restpassword,
+                  title: AppWords.reset.tr,
+                  style: AppTextStyle.textStyle20regular),
+              const SizedBox(height: 30),
+              Text(
+                AppWords.password.tr,
+                style: AppTextStyle.textStyle20medium,
+              ),
+              CustomTextField(
+                  onTap: () {},
+                  controller: passwordController,
+                  hintText: 'Enter your password',
+                  fillColor: AppColors.hintColor,
+                  inputType: TextInputType.visiblePassword,
+                  obscureText: isAccepted,
+                  textFieldValidType: TextFieldValidatorType.Password,
+                  suffixIcon: InkWell(
+                      onTap: () {
+                        setState(() {
+                          isAccepted = !isAccepted;
+                        });
+                      },
+                      child: isAccepted
+                          ? const Icon(
+                              Icons.visibility_off,
+                              color: Colors.grey,
+                            )
+                          : const Icon(Icons.visibility)),
+                  currentFocusNode: passFocus,
+                  nextFocusNode: confirmfocus),
+              const SizedBox(height: 10),
+              Text(
+                AppWords.confirmpassword.tr,
+                style: AppTextStyle.textStyle20medium,
+              ),
+              CustomTextField(
+                  onTap: () {},
+                  controller: confirmController,
+                  hintText: 'Enter your password',
+                  fillColor: AppColors.hintColor,
+                  inputType: TextInputType.visiblePassword,
+                  obscureText: confirmAccepted,
+                  textFieldValidType: TextFieldValidatorType.Password,
+                  suffixIcon: InkWell(
+                      onTap: () {
+                        setState(() {
+                          confirmAccepted = !confirmAccepted;
+                        });
+                      },
+                      child: confirmAccepted
+                          ? const Icon(
+                              Icons.visibility_off,
+                              color: Colors.grey,
+                            )
+                          : const Icon(Icons.visibility)),
+                  currentFocusNode: confirmfocus,
+                  nextFocusNode: confirmfocus),
+              const SizedBox(
+                height: 30,
+              ),
+              CustomButton(
+                title: AppWords.confirm.tr,
+                style: AppTextStyle.textStyle24medium
+                    .copyWith(color: AppColors.backgroundColor),
+                onPress: () {
+                  goToScreen(screenNames: ScreenNames.bottomNavigationBar);
+                },
+              )
+            ],
+          ),
         ),
       ),
     );

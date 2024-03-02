@@ -16,6 +16,7 @@ class CustomButton extends StatelessWidget {
     this.width = 380,
     this.height = 52,
     this.borderWidth = 1,
+    this.style,
   });
   final String title;
   final double titleFontSize;
@@ -25,6 +26,7 @@ class CustomButton extends StatelessWidget {
   final Color titleFontColor;
   final double borderRadius;
   final Function? onPress;
+  final TextStyle? style;
   final Color backgroundColor, borderColor;
 
   @override
@@ -45,12 +47,7 @@ class CustomButton extends StatelessWidget {
                 onPress!();
               }
             : null,
-        child: Text(title,
-            style: backgroundColor == AppColors.primaryColor
-                ? AppTextStyle.textStyle24medium
-                    .copyWith(color: AppColors.backgroundColor)
-                : AppTextStyle.textStyle24medium
-                    .copyWith(color: AppColors.primaryColor)),
+        child: Text(title, style: style),
       ),
     );
   }

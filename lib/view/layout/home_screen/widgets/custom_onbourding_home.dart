@@ -11,8 +11,8 @@ class CustomOnbourdingHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return isActive
         ? Container(
-            margin: const EdgeInsets.all(1),
-            width: 48,
+            margin: const EdgeInsets.all(3),
+            width: 12,
             height: 12,
             decoration: const ShapeDecoration(
               color: AppColors.textColor,
@@ -20,8 +20,9 @@ class CustomOnbourdingHome extends StatelessWidget {
             ),
           )
         : Container(
-            width: 12,
-            height: 12,
+            margin: const EdgeInsets.all(2),
+            width: 10,
+            height: 10,
             decoration: const ShapeDecoration(
               color: AppColors.hintColor,
               shape: CircleBorder(),

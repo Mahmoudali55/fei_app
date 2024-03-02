@@ -21,7 +21,8 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-  bool isAccepted = false;
+  bool isAccepted = true;
+  bool confirmAccepted = true;
   List<String> goverments = [
     "mansora",
     "port said",
@@ -81,7 +82,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20)
+          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 25)
               .copyWith(),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -98,10 +99,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   onTap: () {},
                   controller: firstnameController,
                   hintText: 'Enter your fristname',
+                  fillColor: AppColors.hintColor,
                   inputType: TextInputType.emailAddress,
                   textFieldValidType: TextFieldValidatorType.Name,
                   currentFocusNode: firstname,
                   nextFocusNode: lastname),
+              const SizedBox(
+                height: 5,
+              ),
               Text(
                 AppWords.lastname.tr,
                 style: AppTextStyle.textStyle20medium,
@@ -110,10 +115,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   onTap: () {},
                   controller: lastnameController,
                   hintText: 'Enter your lastname',
+                  fillColor: AppColors.hintColor,
                   inputType: TextInputType.emailAddress,
                   textFieldValidType: TextFieldValidatorType.Name,
                   currentFocusNode: lastname,
                   nextFocusNode: username),
+              const SizedBox(
+                height: 5,
+              ),
               Text(
                 AppWords.username.tr,
                 style: AppTextStyle.textStyle20medium,
@@ -122,10 +131,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   onTap: () {},
                   controller: usernameController,
                   hintText: 'Enter your username',
+                  fillColor: AppColors.hintColor,
                   inputType: TextInputType.emailAddress,
                   textFieldValidType: TextFieldValidatorType.Name,
                   currentFocusNode: username,
                   nextFocusNode: email),
+              const SizedBox(
+                height: 5,
+              ),
               Text(
                 AppWords.email.tr,
                 style: AppTextStyle.textStyle20medium,
@@ -134,127 +147,157 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   onTap: () {},
                   controller: emailController,
                   hintText: 'Enter your Email',
+                  fillColor: AppColors.hintColor,
                   inputType: TextInputType.emailAddress,
                   textFieldValidType: TextFieldValidatorType.Email,
                   currentFocusNode: email,
                   nextFocusNode: password),
+              const SizedBox(
+                height: 5,
+              ),
               Text(
                 AppWords.password.tr,
                 style: AppTextStyle.textStyle20medium,
               ),
+
               CustomTextField(
                   onTap: () {},
                   controller: passwordController,
                   hintText: 'Enter your password',
+                  fillColor: AppColors.hintColor,
                   inputType: TextInputType.visiblePassword,
-                  obscureText: true,
+                  obscureText: isAccepted,
                   textFieldValidType: TextFieldValidatorType.Password,
                   suffixIcon: InkWell(
                       onTap: () {
-                        isAccepted = !isAccepted;
+                        setState(() {
+                          isAccepted = !isAccepted;
+                        });
                       },
                       child: isAccepted
-                          ? const Icon(Icons.visibility)
-                          : const Icon(Icons.visibility_off)),
+                          ? const Icon(
+                              Icons.visibility_off,
+                              color: Colors.grey,
+                            )
+                          : const Icon(Icons.visibility)),
                   currentFocusNode: password,
                   nextFocusNode: confirmpassword),
+              const SizedBox(
+                height: 5,
+              ),
               Text(
                 AppWords.confirmpassword.tr,
                 style: AppTextStyle.textStyle20medium,
               ),
+
               CustomTextField(
                   onTap: () {},
-                  controller: passwordController,
+                  controller: confirmpasswordController,
                   hintText: 'Enter your password',
+                  fillColor: AppColors.hintColor,
                   inputType: TextInputType.visiblePassword,
-                  obscureText: true,
+                  obscureText: confirmAccepted,
                   textFieldValidType: TextFieldValidatorType.Password,
                   suffixIcon: InkWell(
                       onTap: () {
-                        isAccepted = !isAccepted;
+                        setState(() {
+                          confirmAccepted = !confirmAccepted;
+                        });
                       },
-                      child: isAccepted
-                          ? const Icon(Icons.visibility)
-                          : const Icon(Icons.visibility_off)),
+                      child: confirmAccepted
+                          ? const Icon(
+                              Icons.visibility_off,
+                              color: Colors.grey,
+                            )
+                          : const Icon(
+                              Icons.visibility,
+                            )),
                   currentFocusNode: confirmpassword,
                   nextFocusNode: brithDate),
-              Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                Text(
-                  AppWords.birthdate.tr,
-                  style: AppTextStyle.textStyle20medium,
-                ),
-                SizedBox(width: .3.sw),
-                Text(
-                  AppWords.goverment.tr,
-                  style: AppTextStyle.textStyle20medium,
-                ),
-              ]),
-              Row(children: [
-                Expanded(
-                  child: CustomTextField(
-                      controller: brithDateController,
-                      readOnly: true,
-                      onTap: () => _selectDate(context),
-                      suffixIcon: const Icon(Icons.calendar_today),
-                      hintText: 'DD/MM/YYYY',
-                      inputType: TextInputType.datetime,
-                      textFieldValidType: TextFieldValidatorType.Optional,
-                      currentFocusNode: brithDate,
-                      nextFocusNode: brithDate),
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                Expanded(
-                  child: StatefulBuilder(
-                    builder: (context, setState) => CustomTextField(
-                      readOnly: true,
-                      controller: govermentController,
-                      onTap: () {},
-                      inputType: TextInputType.streetAddress,
-                      textFieldValidType: TextFieldValidatorType.Name,
-                      suffixIcon: DropdownButton<String>(
-                        dropdownColor: Colors.white,
-                        underline: const SizedBox.shrink(),
-                        icon: const Icon(
-                          Icons.arrow_drop_down,
-                          color: AppColors.textColor,
-                        ),
-                        items: goverments
-                            .map(
-                              (e) => DropdownMenuItem<String>(
-                                value: e,
-                                child: Container(
-                                    width: 100.w,
-                                    decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(50.r)),
-                                    child: Text(
-                                      e,
-                                      style: AppTextStyle.textStyle12regular,
-                                    )),
-                              ),
-                            )
-                            .toList(),
-                        // value: selectedItem,
-                        onChanged: (value) {
-                          setState(() {
-                            govermentController.text = value!;
-                            print(govermentController.text);
-                          });
-                        },
-                      ),
-                      currentFocusNode: goverment,
-                      nextFocusNode: brithDate,
-                    ),
-                  ),
-                ),
-              ]),
-              const SizedBox(height: 30),
+              // Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              //   Text(
+              //     AppWords.birthdate.tr,
+              //     style: AppTextStyle.textStyle20medium,
+              //   ),
+              //   SizedBox(width: .3.sw),
+              //   Text(
+              //     AppWords.goverment.tr,
+              //     style: AppTextStyle.textStyle20medium,
+              //   ),
+              // ]),
+              // Row(children: [
+              //   Expanded(
+              //     child: CustomTextField(
+              //         controller: brithDateController,
+              //         readOnly: true,
+              //         onTap: () => _selectDate(context),
+              //         suffixIcon: const Icon(Icons.calendar_today),
+              //         hintText: 'DD/MM/YYYY',
+              //         inputType: TextInputType.datetime,
+              //         fillColor: AppColors.hintColor,
+              //         textFieldValidType: TextFieldValidatorType.Optional,
+              //         currentFocusNode: brithDate,
+              //         nextFocusNode: goverment),
+              //   ),
+              //   const SizedBox(
+              //     width: 10,
+              //   ),
+              //   Expanded(
+              //     child: StatefulBuilder(
+              //       builder: (context, setState) => CustomTextField(
+              //         readOnly: true,
+              //         controller: govermentController,
+              //         onTap: () {},
+              //         inputType: TextInputType.streetAddress,
+              //         fillColor: AppColors.hintColor,
+              //         textFieldValidType: TextFieldValidatorType.Name,
+              //         suffixIcon: DropdownButton<String>(
+              //           dropdownColor: Colors.white,
+              //           underline: const SizedBox.shrink(),
+              //           icon: const Icon(
+              //             Icons.arrow_drop_down,
+              //             color: AppColors.textColor,
+              //           ),
+              //           items: goverments
+              //               .map(
+              //                 (e) => DropdownMenuItem<String>(
+              //                   value: e,
+              //                   child: Container(
+              //                       width: 100.w,
+              //                       decoration: BoxDecoration(
+              //                           borderRadius:
+              //                               BorderRadius.circular(50.r)),
+              //                       child: Text(
+              //                         e,
+              //                         style: AppTextStyle.textStyle12regular,
+              //                       )),
+              //                 ),
+              //               )
+              //               .toList(),
+              //           // value: selectedItem,
+              //           onChanged: (value) {
+              //             setState(() {
+              //               govermentController.text = value!;
+              //               print(govermentController.text);
+              //             });
+              //           },
+              //         ),
+              //         currentFocusNode: goverment,
+              //         nextFocusNode: brithDate,
+              //       ),
+              //     ),
+              //   ),
+              // ]),
+              const SizedBox(height: 35),
               CustomButton(
                 backgroundColor: AppColors.primaryColor,
                 title: AppWords.signup.tr,
+                style: AppTextStyle.textStyle24medium
+                    .copyWith(color: AppColors.backgroundColor),
                 titleFontSize: 24,
+                onPress: () {
+                  goToScreen(screenNames: ScreenNames.bottomNavigationBar);
+                },
               ),
               const SizedBox(height: 10),
               Row(

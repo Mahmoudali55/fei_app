@@ -30,7 +30,7 @@ class BackButtonCustom extends StatelessWidget {
             color: isGreen
                 ? const Color(0xff000000)
                 : isArrowWhite
-                    ? Colors.black
+                    ? Colors.white
                     : AppColors.textColor,
           ),
         ),

@@ -15,14 +15,6 @@ class CustomRatingBar extends StatelessWidget {
       // mainAxisAlignment: MainAxisAlignment.spaceAround,
       // mainAxisSize: MainAxisSize.min,
       children: [
-        Text(
-          '( $rate )',
-          style: TextStyle(
-            fontSize: 12.sp,
-            fontWeight: FontWeight.bold,
-            color: Colors.amber,
-          ),
-        ),
         RatingBar.builder(
           textDirection: TextDirection.ltr,
           glowColor: Colors.white,
