@@ -1,3 +1,4 @@
+import 'package:fei_app/helper/routes/routes.dart';
 import 'package:fei_app/helper/utils/app_colors.dart';
 import 'package:fei_app/helper/utils/app_images.dart';
 import 'package:fei_app/helper/utils/app_textstyle.dart';
@@ -295,7 +296,10 @@ class _LabsAppointmentState extends State<LabsAppointment> {
           height: 50,
         ),
         CustomButton(
-          height: 52.h,
+          onPress: () {
+            goToScreen(screenNames: ScreenNames.paymentMethod);
+          },
+          height: 60.h,
           width: 398.w,
           title: AppWords.book.tr,
           style: AppTextStyle.textStyle24medium

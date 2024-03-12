@@ -42,14 +42,15 @@ class _ProfileScreenOnboardingState extends State<ProfileScreenOnboarding> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      extendBody: true,
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 40),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 70),
         child: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
           child: Column(
             children: [
               Container(
-                  height: 40.h,
+                  height: 50.h,
                   width: 399.w,
                   decoration: BoxDecoration(
                     color: AppColors.hintColor,
@@ -63,7 +64,7 @@ class _ProfileScreenOnboardingState extends State<ProfileScreenOnboarding> {
                         });
                       },
                       child: Container(
-                        height: 40.h,
+                        height: 50.h,
                         width: 199.w,
                         decoration: BoxDecoration(
                           color: isActive
@@ -74,9 +75,9 @@ class _ProfileScreenOnboardingState extends State<ProfileScreenOnboarding> {
                         child: Center(
                             child: Text(AppWords.userprofile.tr,
                                 style: isActive
-                                    ? AppTextStyle.textStyle18semiBold.copyWith(
+                                    ? AppTextStyle.textStyle16semiBold.copyWith(
                                         color: AppColors.backgroundColor)
-                                    : AppTextStyle.textStyle18semiBold)),
+                                    : AppTextStyle.textStyle16semiBold)),
                       ),
                     ),
                     InkWell(
@@ -86,7 +87,7 @@ class _ProfileScreenOnboardingState extends State<ProfileScreenOnboarding> {
                         });
                       },
                       child: Container(
-                        height: 40.h,
+                        height: 50.h,
                         width: 199.w,
                         decoration: BoxDecoration(
                           color: isActive
@@ -97,8 +98,8 @@ class _ProfileScreenOnboardingState extends State<ProfileScreenOnboarding> {
                         child: Center(
                             child: Text(AppWords.settings.tr,
                                 style: isActive
-                                    ? AppTextStyle.textStyle18semiBold
-                                    : AppTextStyle.textStyle18semiBold.copyWith(
+                                    ? AppTextStyle.textStyle16semiBold
+                                    : AppTextStyle.textStyle16semiBold.copyWith(
                                         color: AppColors.backgroundColor))),
                       ),
                     ),
@@ -138,7 +139,7 @@ class _ProfileScreenOnboardingState extends State<ProfileScreenOnboarding> {
                           },
                           child: Container(
                             margin: EdgeInsets.only(
-                                top: 50.h, right: 10.w, left: 10.w),
+                                top: 20.h, right: 10.w, left: 10.w),
                             width: 106,
                             // height: 95,
                             decoration: BoxDecoration(
@@ -168,9 +169,11 @@ class _ProfileScreenOnboardingState extends State<ProfileScreenOnboarding> {
                           ),
                         ),
                         const SizedBox(
-                          height: 25,
+                          height: 15,
                         ),
                         CustomTextField(
+                          height: 65.h,
+                          obscureText: false,
                           cursorColor: AppColors.hintColor,
                           onTap: () {},
                           currentFocusNode: name,
@@ -180,9 +183,11 @@ class _ProfileScreenOnboardingState extends State<ProfileScreenOnboarding> {
                           inputType: TextInputType.name,
                         ),
                         const SizedBox(
-                          height: 10,
+                          height: 5,
                         ),
                         CustomTextField(
+                          height: 65.h,
+                          obscureText: false,
                           cursorColor: AppColors.hintColor,
                           onTap: () {},
                           currentFocusNode: phonenumber,
@@ -192,9 +197,11 @@ class _ProfileScreenOnboardingState extends State<ProfileScreenOnboarding> {
                           inputType: TextInputType.phone,
                         ),
                         const SizedBox(
-                          height: 10,
+                          height: 5,
                         ),
                         CustomTextField(
+                          height: 65.h,
+                          obscureText: false,
                           cursorColor: AppColors.hintColor,
                           onTap: () {},
                           currentFocusNode: city,
@@ -204,9 +211,11 @@ class _ProfileScreenOnboardingState extends State<ProfileScreenOnboarding> {
                           inputType: TextInputType.name,
                         ),
                         const SizedBox(
-                          height: 10,
+                          height: 5,
                         ),
                         CustomTextField(
+                          height: 65.h,
+                          obscureText: false,
                           cursorColor: AppColors.hintColor,
                           onTap: () {},
                           currentFocusNode: gavernment,
@@ -216,9 +225,11 @@ class _ProfileScreenOnboardingState extends State<ProfileScreenOnboarding> {
                           inputType: TextInputType.name,
                         ),
                         const SizedBox(
-                          height: 10,
+                          height: 5,
                         ),
                         CustomTextField(
+                          height: 65.h,
+                          obscureText: false,
                           cursorColor: AppColors.hintColor,
                           onTap: () {},
                           currentFocusNode: email,
@@ -228,9 +239,11 @@ class _ProfileScreenOnboardingState extends State<ProfileScreenOnboarding> {
                           inputType: TextInputType.name,
                         ),
                         const SizedBox(
-                          height: 10,
+                          height: 5,
                         ),
                         CustomTextField(
+                          height: 65.h,
+                          obscureText: false,
                           cursorColor: AppColors.hintColor,
                           onTap: () {},
                           currentFocusNode: brithDate,
@@ -245,10 +258,10 @@ class _ProfileScreenOnboardingState extends State<ProfileScreenOnboarding> {
                             children: [
                               Text(
                                 AppWords.gander.tr,
-                                style: AppTextStyle.textStyle20bold,
+                                style: AppTextStyle.textStyle18Bold,
                               ),
                               SizedBox(
-                                height: 10.h,
+                                height: 5.h,
                               ),
                               Row(children: [
                                 Radio(
@@ -263,7 +276,7 @@ class _ProfileScreenOnboardingState extends State<ProfileScreenOnboarding> {
                                 ),
                                 Text(
                                   AppWords.male.tr,
-                                  style: AppTextStyle.textStyle20bold,
+                                  style: AppTextStyle.textStyle18Bold,
                                 ),
                                 Radio(
                                   activeColor: AppColors.primaryColor,
@@ -277,7 +290,7 @@ class _ProfileScreenOnboardingState extends State<ProfileScreenOnboarding> {
                                 ),
                                 Text(
                                   AppWords.female.tr,
-                                  style: AppTextStyle.textStyle20bold,
+                                  style: AppTextStyle.textStyle18Bold,
                                 ),
                               ])
                             ],
@@ -319,7 +332,7 @@ class _ProfileScreenOnboardingState extends State<ProfileScreenOnboarding> {
                           },
                           child: Container(
                             margin: EdgeInsets.only(
-                                top: 50.h, right: 10.w, left: 10.w),
+                                top: 20.h, right: 10.w, left: 10.w),
                             width: 106,
                             height: 95,
                             decoration: BoxDecoration(
@@ -346,9 +359,9 @@ class _ProfileScreenOnboardingState extends State<ProfileScreenOnboarding> {
                           ),
                         ),
                         Text('mahmoud ali',
-                            style: AppTextStyle.textStyle32semiBold),
+                            style: AppTextStyle.textStyle24semiBold),
                         const SizedBox(
-                          height: 20,
+                          height: 15,
                         ),
                         const CustomSetting()
                       ],

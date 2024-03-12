@@ -17,3 +17,10 @@ class CustomHomeModel {
     this.onTap,
   });
 }
+
+class CustomServicesModel {
+  String title;
+  void Function()? onTap;
+  String image;
+  CustomServicesModel({required this.title, required this.image, this.onTap});
+}

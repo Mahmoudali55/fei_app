@@ -53,7 +53,7 @@ class _CustomCardpharmacyState extends State<CustomCardpharmacy> {
               : Row(
                   children: [
                     Image.asset(widget.pharmacyModel.image,
-                        height: 74, width: 77),
+                        height: 74, width: 60),
                     SizedBox(width: 10.w),
                     GestureDetector(
                         onTap: () {
@@ -89,7 +89,6 @@ class _CustomCardpharmacyState extends State<CustomCardpharmacy> {
         ),
         CustomButton(
           height: 28.h,
-          width: 140.w,
           borderRadius: 8.r,
           style: AppTextStyle.textStyle11medium
               .copyWith(color: AppColors.backgroundColor),

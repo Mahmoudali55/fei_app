@@ -25,65 +25,68 @@ class _ScanScreenState extends State<ScanScreen> {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 40),
-        child: Column(children: [
-          Row(children: [
-            const BackButtonCustom(),
+        child: SingleChildScrollView(
+          child: Column(children: [
+            Row(children: [
+              const BackButtonCustom(),
+              SizedBox(
+                width: 100.w,
+              ),
+              Text(
+                AppWords.oRCode.tr,
+                style: AppTextStyle.textStyle32medium,
+                textAlign: TextAlign.center,
+              ),
+            ]),
             SizedBox(
-              width: 100.w,
+              height: 100.h,
+            ),
+            Image.asset(
+              AppImages.scancode,
+              width: 300.w,
+            ),
+            SizedBox(
+              height: 40.h,
             ),
             Text(
-              AppWords.oRCode.tr,
-              style: AppTextStyle.textStyle32medium,
+              AppWords.textScan.tr,
+              style:
+                  AppTextStyle.textStyle18semiBold.copyWith(color: Colors.grey),
               textAlign: TextAlign.center,
             ),
-          ]),
-          SizedBox(
-            height: 120.h,
-          ),
-          Image.asset(AppImages.scancode),
-          SizedBox(
-            height: 60.h,
-          ),
-          Text(
-            AppWords.textScan.tr,
-            style:
-                AppTextStyle.textStyle24semiBold.copyWith(color: Colors.grey),
-            textAlign: TextAlign.center,
-          ),
-          SizedBox(
-            height: 70.h,
-          ),
-          Row(
-            children: [
-              CustomButton(
-                width: 189.w,
-                title: AppWords.textbuttonscan.tr,
-                style: AppTextStyle.textStyle26medium
-                    .copyWith(color: AppColors.backgroundColor),
-                onPress: () async {
-                  String barcodeScanRes =
-                      await FlutterBarcodeScanner.scanBarcode(
-                    '#2A99CF', // لون الشريط العائم
-                    'Cancel',
-
-                    // النص الذي يظهر لإلغاء عملية المسح
-                    true, // تحديد ما إذا كان يتم إظهار زر الفلاش أم لا
-                    ScanMode.BARCODE,
-                  );
-                },
-              ),
-              SizedBox(
-                width: 40.w,
-              ),
-              CustomButton(
+            SizedBox(
+              height: 50.h,
+            ),
+            Row(
+              children: [
+                CustomButton(
                   width: 189.w,
-                  backgroundColor: AppColors.backgroundColor,
-                  borderColor: AppColors.primaryColor,
-                  title: 'Import',
-                  style: AppTextStyle.textStyle22medium)
-            ],
-          )
-        ]),
+                  title: AppWords.textbuttonscan.tr,
+                  style: AppTextStyle.textStyle20medium
+                      .copyWith(color: AppColors.backgroundColor),
+                  onPress: () async {
+                    String barcodeScanRes =
+                        await FlutterBarcodeScanner.scanBarcode(
+                      '#2A99CF',
+                      'Cancel',
+                      true,
+                      ScanMode.BARCODE,
+                    );
+                  },
+                ),
+                SizedBox(
+                  width: 40.w,
+                ),
+                CustomButton(
+                    width: 189.w,
+                    backgroundColor: AppColors.backgroundColor,
+                    borderColor: AppColors.primaryColor,
+                    title: 'Import',
+                    style: AppTextStyle.textStyle20medium)
+              ],
+            )
+          ]),
+        ),
       ),
     );
   }

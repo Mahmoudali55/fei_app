@@ -8,6 +8,7 @@ import 'package:fei_app/view/customs_widgets/custom_button/back_button.dart';
 import 'package:fei_app/view/customs_widgets/custom_button/custom_button.dart';
 import 'package:fei_app/view/customs_widgets/custom_item_profile/custom_description.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -62,14 +63,12 @@ class CustomLabProfile extends StatelessWidget {
                         ),
                         const Spacer(),
                         Transform.scale(
-                            scale: .9,
-                            child: Image.asset('assets/image/phone.png')),
+                            scale: .9, child: Image.asset(AppImages.phone)),
                         const SizedBox(
                           width: 20,
                         ),
                         Transform.scale(
-                            scale: .9,
-                            child: Image.asset('assets/image/message.png')),
+                            scale: .9, child: Image.asset(AppImages.message)),
                       ],
                     ),
                     Row(
@@ -88,30 +87,33 @@ class CustomLabProfile extends StatelessWidget {
                     const SizedBox(
                       height: 8,
                     ),
-                    Row(
-                      children: [
-                        CustomDescription(
-                          text: AppWords.patients.tr,
-                          suptext: ' ${itemProfileModel.patientsNumbers}+',
-                          image: AppImages.personGreenIcon,
-                        ),
-                        const SizedBox(
-                          width: 12,
-                        ),
-                        CustomDescription(
-                          text: AppWords.experience.tr,
-                          suptext: ' ${itemProfileModel.experience} Yrs+',
-                          image: AppImages.experience,
-                        ),
-                        const SizedBox(
-                          width: 12,
-                        ),
-                        CustomDescription(
-                          text: AppWords.rating.tr,
-                          suptext: ' ${itemProfileModel.rate.tr}',
-                          image: AppImages.rating,
-                        ),
-                      ],
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          CustomDescription(
+                            text: AppWords.patients.tr,
+                            suptext: ' ${itemProfileModel.patientsNumbers}+',
+                            image: AppImages.personGreenIcon,
+                          ),
+                          const SizedBox(
+                            width: 12,
+                          ),
+                          CustomDescription(
+                            text: AppWords.experience.tr,
+                            suptext: ' ${itemProfileModel.experience} Yrs+',
+                            image: AppImages.experience,
+                          ),
+                          const SizedBox(
+                            width: 12,
+                          ),
+                          CustomDescription(
+                            text: AppWords.rating.tr,
+                            suptext: ' ${itemProfileModel.rate.tr}',
+                            image: AppImages.rating,
+                          ),
+                        ],
+                      ),
                     ),
                     const SizedBox(
                       height: 10,
@@ -122,7 +124,7 @@ class CustomLabProfile extends StatelessWidget {
                     ),
                     Text(
                       itemProfileModel.about,
-                      style: AppTextStyle.textStyle15regular
+                      style: AppTextStyle.textStyle14regular
                           .copyWith(color: const Color(0xff515050)),
                     ),
                     const SizedBox(
@@ -134,7 +136,7 @@ class CustomLabProfile extends StatelessWidget {
                     ),
                     Text(
                       AppWords.availabilitylab.tr,
-                      style: AppTextStyle.textStyle15regular
+                      style: AppTextStyle.textStyle14regular
                           .copyWith(color: const Color(0xff515050)),
                     ),
                     const SizedBox(

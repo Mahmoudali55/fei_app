@@ -1,4 +1,3 @@
-
 import 'package:fei_app/helper/utils/app_colors.dart';
 import 'package:fei_app/helper/utils/app_textstyle.dart';
 import 'package:flutter/material.dart';
@@ -17,19 +16,26 @@ class CustomDescription extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 74,
-      width: 113,
+      width: 100,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(9),
           border: Border.all(color: AppColors.primaryColor)),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(text,style: AppTextStyle.textStyle14semiBold.copyWith(color: const Color(0xff707070)),),
+          Text(
+            text,
+            style: AppTextStyle.textStyle14semiBold
+                .copyWith(color: const Color(0xff707070)),
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(image),
-              Text(suptext,style: AppTextStyle.textStyle18regular,),
+              Text(
+                suptext,
+                style: AppTextStyle.textStyle16regular,
+              ),
             ],
           )
         ],

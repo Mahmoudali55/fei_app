@@ -53,12 +53,12 @@ class _LogeScreenState extends State<LogeScreen> with TickerProviderStateMixin {
                   scale: _scaleAnimation.value,
                   child: Container(
                       // margin: const EdgeInsets.only(top: 100),
-                      padding: const EdgeInsets.symmetric(vertical: 30),
+                      padding: const EdgeInsets.symmetric(vertical: 23),
                       child: Column(
                         children: [
                           Image.asset(
                             widget.image,
-                            height: 300.h,
+                            height: 255.h,
                           ),
                           Padding(
                               padding:

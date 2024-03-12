@@ -38,7 +38,7 @@ class _TeastViewBodyState extends State<TeastViewBody> {
           ),
         ),
         Positioned(
-          bottom: 25,
+          bottom: 15,
           right: 0,
           left: 0,
           child: CustomDotIndicator(
@@ -46,7 +46,7 @@ class _TeastViewBodyState extends State<TeastViewBody> {
           ),
         ),
         Positioned(
-            bottom: 85,
+            bottom: 58,
             left: 5,
             right: 5,
             child: Row(

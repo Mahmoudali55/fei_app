@@ -84,69 +84,79 @@ class _MedicineReminderState extends State<MedicineReminder>
               context: context,
               builder: (BuildContext context) {
                 return Container(
-                  height: 562.h,
+                  // height: 562.h,
                   width: 430.w,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(16.0),
                   ),
                   padding: const EdgeInsets.all(16.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      Row(
-                        children: [
-                          Text(
-                            AppWords.addNewMedicine.tr,
-                            style: AppTextStyle.textStyle24bold,
-                          ),
-                          const Spacer(),
-                          IconButton(
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            icon: const Icon(
-                              Icons.close,
-                            ),
-                          )
-                        ],
-                      ),
-                      TextFormField(
-                          decoration: InputDecoration(
-                        label: Text(AppWords.name.tr),
-                      )),
-                      const SizedBox(height: 10.0),
-                      TextFormField(
-                          decoration: InputDecoration(
-                        label: Text(AppWords.dose.tr),
-                      )),
-                      const SizedBox(height: 15.0),
-                      Text(AppWords.shape.tr),
-                      const SizedBox(height: 10.0),
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  child: SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        Row(
                           children: [
-                            Image.asset(
-                              AppImages.rememberme1,
-                              color: Colors.grey,
+                            Text(
+                              AppWords.addNewMedicine.tr,
+                              style: AppTextStyle.textStyle24bold,
                             ),
-                            Image.asset(
-                              AppImages.rememberme2,
-                              color: Colors.grey,
-                            ),
-                            Image.asset(
-                              AppImages.rememberme3,
-                              color: Colors.grey,
-                            ),
-                          ]),
-                      const SizedBox(height: 50.0),
-                      CustomButton(
-                        title: AppWords.addSchedual.tr,
-                        style: AppTextStyle.textStyle20bold
-                            .copyWith(color: AppColors.backgroundColor),
-                      )
-                    ],
+                            const Spacer(),
+                            IconButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              icon: const Icon(
+                                Icons.close,
+                              ),
+                            )
+                          ],
+                        ),
+                        TextFormField(
+                            decoration: InputDecoration(
+                          label: Text(AppWords.name.tr),
+                        )),
+                        TextFormField(
+                            decoration: InputDecoration(
+                          label: Text(AppWords.dose.tr),
+                        )),
+                        TextFormField(
+                            decoration: InputDecoration(
+                          label: Text(AppWords.pillDosage.tr),
+                        )),
+                        TextFormField(
+                            decoration: InputDecoration(
+                          label: Text(AppWords.program.tr),
+                        )),
+                        const SizedBox(height: 10.0),
+                        Text(
+                          AppWords.shape.tr,
+                        ),
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Image.asset(
+                                AppImages.rememberme1,
+                                color: Colors.grey,
+                              ),
+                              Image.asset(
+                                AppImages.rememberme2,
+                                color: Colors.grey,
+                              ),
+                              Image.asset(
+                                AppImages.rememberme3,
+                                color: Colors.grey,
+                              ),
+                            ]),
+                        const SizedBox(height: 50.0),
+                        CustomButton(
+                          title: AppWords.addSchedual.tr,
+                          style: AppTextStyle.textStyle20bold
+                              .copyWith(color: AppColors.backgroundColor),
+                        )
+                      ],
+                    ),
                   ),
                 );
               },

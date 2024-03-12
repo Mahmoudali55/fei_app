@@ -1,8 +1,10 @@
 import 'package:fei_app/helper/routes/routes.dart';
+import 'package:fei_app/helper/utils/app_colors.dart';
 
 import 'package:fei_app/helper/utils/app_images.dart';
 import 'package:fei_app/helper/utils/app_textstyle.dart';
 import 'package:fei_app/helper/utils/app_word.dart';
+import 'package:fei_app/view/customs_widgets/custom_button/custom_button.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
@@ -18,50 +20,6 @@ class LogoScreen extends StatefulWidget {
 
 class _LogoScreenState extends State<LogoScreen>
     with SingleTickerProviderStateMixin {
-  Future<void> _selectDate(BuildContext context) async {
-    Future.delayed(const Duration(seconds: 3), () {
-      goToScreen(screenNames: ScreenNames.splashScreen);
-      //   showDialog(
-      //       context: context,
-      //       builder: (BuildContext context) {
-      //         return CupertinoAlertDialog(
-      //           content: AnimatedBuilder(
-      //             animation: _animation,
-      //             builder: (context, child) {
-      //               return Transform.scale(
-      //                 scale: _animation.value,
-      //                 child: Image.asset(AppImages.logo),
-      //               );
-      //             },
-      //           ),
-      //           title: Text(
-      //             'welcome to our uncoming fei app',
-      //             style: AppTextStyle.textStyle18medium,
-      //           ),
-      //           actions: [
-      //             CupertinoDialogAction(
-      //                 onPressed: () {
-      //                   goToScreen(screenNames: ScreenNames.splashScreen);
-      //                 },
-      //                 child: Text('patient',
-      //                     style: AppTextStyle.textStyle17regular
-      //                         .copyWith(color: Colors.blue))),
-      //             CupertinoDialogAction(
-      //               onPressed: () {
-      //                 goToScreen(screenNames: ScreenNames.splashScreen);
-      //               },
-      //               child: Text(
-      //                 'Doctor',
-      //                 style: AppTextStyle.textStyle17semiBold
-      //                     .copyWith(color: Colors.red),
-      //               ),
-      //             ),
-      //           ],
-      //         );
-      //       });
-    });
-  }
-
   late AnimationController _controller;
   late Animation<double> _animation;
   @override
@@ -77,7 +35,7 @@ class _LogoScreenState extends State<LogoScreen>
         curve: Curves.easeInOut,
       ),
     );
-    _selectDate(context);
+    // _selectDate(context);
   }
 
   @override
@@ -100,13 +58,50 @@ class _LogoScreenState extends State<LogoScreen>
               );
             },
           ),
-          SizedBox(height: 20.h),
           Text(
             AppWords.logename.tr,
             style: AppTextStyle.textStyle48bold,
           ),
+          SizedBox(height: 100.h),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CustomButton(
+                onPress: () {
+                  goToScreen(
+                    screenNames: ScreenNames.splashScreen,
+                    arguments: Screen.patientScreen,
+                  );
+                },
+                title: 'Patient',
+                style: AppTextStyle.textStyle24bold
+                    .copyWith(color: AppColors.backgroundColor),
+                width: 150,
+              ),
+              const SizedBox(
+                width: 20,
+              ),
+              CustomButton(
+                onPress: () {
+                  goToScreen(
+                    screenNames: ScreenNames.splashScreen,
+                    arguments: Screen.doctorScreen,
+                  );
+                },
+                style: AppTextStyle.textStyle24bold
+                    .copyWith(color: AppColors.backgroundColor),
+                title: 'Doctor',
+                width: 150,
+              ),
+            ],
+          )
         ]),
       ),
     );
   }
+}
+
+enum Screen {
+  doctorScreen,
+  patientScreen,
 }

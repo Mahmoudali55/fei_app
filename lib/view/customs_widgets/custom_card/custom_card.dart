@@ -80,7 +80,7 @@ class CustomCard extends StatelessWidget {
                             color: Colors.amber,
                           ),
                           SizedBox(
-                            width: 180.w,
+                            width: 160.w,
                           ),
                           Container(
                             decoration: const BoxDecoration(

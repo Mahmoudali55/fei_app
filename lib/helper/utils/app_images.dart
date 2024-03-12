@@ -84,4 +84,15 @@ class AppImages {
   static String facebook = '${imagesPath}Facebook.png';
   static String instagram = '${imagesPath}instagram.png';
   static String x = '${imagesPath}X .png';
+  // doctor image
+  static String mybooking = '${imagesPath}mybooking.png';
+  static String plane = '${imagesPath}plan.png';
+  static String labResult = '${imagesPath}labresult.png';
+  static String reviews = '${imagesPath}rewiew.png';
+  static String patient = '${imagesPath}patine.png';
+  static String patientImage = '${imagesPath}patientImage.png';
+  static String lungs = '${imagesPath}lungs.png';
+  static String logeprescription = '${imagesPath}logeprescription.png';
+  static String patineprofile = '${imagesPath}patineprofile.png';
+  static String hospital = '${imagesPath}hosptail.png';
 }

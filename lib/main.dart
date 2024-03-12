@@ -3,8 +3,10 @@ import 'dart:developer';
 import 'package:fei_app/helper/routes/routes.dart';
 import 'package:fei_app/helper/utils/app_info.dart';
 import 'package:fei_app/helper/utils/lang.dart';
+import 'package:fei_app/view/layout/auth/login_screen/cubit/login_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -34,30 +36,33 @@ void main() async {
 }
 
 class Fei extends StatelessWidget {
-  const Fei({super.key, required this.currentLocale});
+  Fei({super.key, required this.currentLocale});
   final Locale? currentLocale;
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        FocusManager.instance.primaryFocus?.unfocus();
-      },
-      child: ScreenUtilInit(
-        useInheritedMediaQuery: true,
-        designSize: const Size(428, 926),
-        builder: (context, widget) => GetMaterialApp(
-          locale: const Locale('ar'),
-          localizationsDelegates: const [
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData(),
-          initialRoute: ScreenNames.logoScreen,
-          routes: appRoutes(context),
-          fallbackLocale: currentLocale,
-          translations: Lang(),
+    return BlocProvider(
+      create: (context) => LoginCubit(),
+      child: GestureDetector(
+        onTap: () {
+          FocusManager.instance.primaryFocus?.unfocus();
+        },
+        child: ScreenUtilInit(
+          useInheritedMediaQuery: true,
+          designSize: const Size(428, 926),
+          builder: (context, widget) => GetMaterialApp(
+            locale: const Locale('en'),
+            localizationsDelegates: const [
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(),
+            initialRoute: ScreenNames.logoScreen,
+            routes: appRoutes(context),
+            fallbackLocale: currentLocale,
+            translations: Lang(),
+          ),
         ),
       ),
     );

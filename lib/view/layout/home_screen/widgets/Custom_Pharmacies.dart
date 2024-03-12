@@ -37,7 +37,7 @@ class CustomPharmacies extends StatelessWidget {
                       height: 74, width: 77))),
           Text(
             customHomeModel.title,
-            style: AppTextStyle.textStyle13Semibold,
+            style: AppTextStyle.textStyle11medium,
           ),
         ]),
       ),

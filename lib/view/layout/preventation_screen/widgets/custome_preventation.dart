@@ -134,10 +134,12 @@ class _CustomeHelpState extends State<CustomeHelp> {
                       child: Text(
                         widget.text,
                         textAlign: TextAlign.start,
+
                         style: AppTextStyle.textStyle16medium,
+
                         maxLines:
                             isExpanded ? null : 2, // Change max lines here
-                        overflow: TextOverflow.ellipsis,
+                        overflow: TextOverflow.fade,
                       ),
                     ),
                     Icon(
@@ -174,6 +176,9 @@ class _CustomeHelpState extends State<CustomeHelp> {
                                 Text(
                                   widget.additionalTexts[i],
                                   style: AppTextStyle.textStyle14regular,
+                                  overflow: TextOverflow.ellipsis,
+                                  softWrap: false,
+                                  // maxLines: 2,
                                 ),
                               ]),
                         ],

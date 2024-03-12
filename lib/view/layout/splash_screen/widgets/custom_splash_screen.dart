@@ -4,10 +4,12 @@ import 'package:fei_app/helper/utils/app_colors.dart';
 import 'package:fei_app/helper/utils/app_textstyle.dart';
 import 'package:fei_app/helper/utils/app_word.dart';
 import 'package:fei_app/view/customs_widgets/custom_button/custom_button.dart';
+import 'package:fei_app/view/layout/splash_screen/logo_screen.dart';
 import 'package:fei_app/view/layout/splash_screen/widgets/custom_onbourding.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_utils/get_utils.dart';
 
@@ -44,8 +46,21 @@ class _CustomSplashScreenState extends State<CustomSplashScreen>
   }
 
   @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  String? message;
+  @override
   Widget build(BuildContext context) {
+    final dynamic argument = Get.arguments;
+
+    if (argument is String) {
+      message = argument;
+    }
     return SingleChildScrollView(
+      physics: const BouncingScrollPhysics(),
       child: Padding(
         padding: const EdgeInsets.only(top: 100),
         child: Container(
@@ -59,7 +74,7 @@ class _CustomSplashScreenState extends State<CustomSplashScreen>
                         child: Image.asset(widget.splashModel.image!));
                   }),
               Container(
-                margin: EdgeInsets.only(top: 30.h, right: 10.w, left: 10.w),
+                margin: EdgeInsets.only(top: 5.h),
                 padding: const EdgeInsets.symmetric(
                   horizontal: 10,
                 ),
@@ -95,15 +110,22 @@ class _CustomSplashScreenState extends State<CustomSplashScreen>
                         Expanded(
                           child: CustomButton(
                               onPress: () {
-                                goToScreen(
-                                    screenNames: ScreenNames.loginScreen);
+                                if (argument == Screen.patientScreen) {
+                                  goToScreen(
+                                      screenNames: ScreenNames.loginScreen,
+                                      arguments: Screen.patientScreen);
+                                } else {
+                                  goToScreen(
+                                      screenNames: ScreenNames.loginScreen,
+                                      arguments: Screen.doctorScreen);
+                                }
                               },
                               titleFontColor: AppColors.secondaryColor,
                               title: widget.currentPage <= 1
                                   ? AppWords.skip.tr
                                   : '',
                               titleFontSize: 24,
-                              style: AppTextStyle.textStyle24medium
+                              style: AppTextStyle.textStyle20medium
                                   .copyWith(color: AppColors.primaryColor),
                               backgroundColor: Colors.transparent),
                         ),
@@ -111,7 +133,7 @@ class _CustomSplashScreenState extends State<CustomSplashScreen>
                         Expanded(
                           child: CustomButton(
                             title: widget.splashModel.titlebutton,
-                            style: AppTextStyle.textStyle24medium
+                            style: AppTextStyle.textStyle20medium
                                 .copyWith(color: AppColors.backgroundColor),
                             backgroundColor: AppColors.primaryColor,
                             titleFontSize: 20,

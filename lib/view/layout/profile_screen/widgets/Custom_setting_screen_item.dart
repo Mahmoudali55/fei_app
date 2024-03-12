@@ -39,8 +39,8 @@ class customSettingItem extends StatelessWidget {
           onTap: ontap(),
           child: Text(text,
               style: text == AppWords.logout.tr
-                  ? AppTextStyle.textStyle24medium.copyWith(color: Colors.red)
-                  : AppTextStyle.textStyle24medium),
+                  ? AppTextStyle.textStyle20medium.copyWith(color: Colors.red)
+                  : AppTextStyle.textStyle20medium),
         ),
       ],
     );

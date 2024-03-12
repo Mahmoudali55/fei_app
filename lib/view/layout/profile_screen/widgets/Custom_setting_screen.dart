@@ -24,7 +24,7 @@ class CustomSetting extends StatelessWidget {
               Scrren: ScreenNames.editprofileScreen,
             ),
             const SizedBox(
-              height: 40,
+              height: 30,
             ),
             customSettingItem(
               ontap: () {},
@@ -33,7 +33,7 @@ class CustomSetting extends StatelessWidget {
               Scrren: ScreenNames.changepasswordScreen,
             ),
             const SizedBox(
-              height: 40,
+              height: 30,
             ),
             customSettingItem(
               ontap: () {},
@@ -42,7 +42,7 @@ class CustomSetting extends StatelessWidget {
               Scrren: ScreenNames.confirmPasswordScreen,
             ),
             const SizedBox(
-              height: 40,
+              height: 30,
             ),
             customSettingItem(
               ontap: () {},
@@ -51,7 +51,7 @@ class CustomSetting extends StatelessWidget {
               Scrren: '',
             ),
             const SizedBox(
-              height: 40,
+              height: 30,
             ),
             customSettingItem(
               ontap: () {},
@@ -60,7 +60,7 @@ class CustomSetting extends StatelessWidget {
               Scrren: ScreenNames.paymentMethod,
             ),
             const SizedBox(
-              height: 40,
+              height: 30,
             ),
             customSettingItem(
               ontap: () {},

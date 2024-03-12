@@ -9,64 +9,92 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_utils/get_utils.dart';
 
-class NotificationScreen extends StatelessWidget {
+class NotificationScreen extends StatefulWidget {
   const NotificationScreen({super.key});
+
+  @override
+  State<NotificationScreen> createState() => _NotificationScreenState();
+}
+
+class _NotificationScreenState extends State<NotificationScreen> {
+  bool isDeleted = false; // متغير لتتبع حالة الحذف
+
+  void deleteContainer() {
+    setState(() {
+      isDeleted = true; // تحديث حالة الحذف
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: AppColors.backgroundColor,
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const BackButtonCustom(),
-                      Text(
-                        AppWords.notifcation.tr,
-                        style: AppTextStyle.textStyle24bold,
-                      ),
-                      Stack(
-                        clipBehavior: Clip.none,
-                        children: [
-                          const Icon(
-                            Icons.notifications,
-                            size: 35,
-                            color: AppColors.textColor,
-                          ),
-                          Positioned(
-                              left: 9.w,
-                              top: 4.h,
-                              child: Container(
-                                width: 15.w,
-                                height: 15.h,
-                                decoration: const ShapeDecoration(
-                                    shape: CircleBorder(), color: Colors.red),
-                              )),
-                        ],
-                      )
-                    ]),
-                const SizedBox(
-                  height: 20,
-                ),
-                Wrap(spacing: 10, runSpacing: 10, children: [
-                  ...List.generate(10, (index) => const CustomNavgation()),
-                ])
-              ],
-            ),
+        appBar: AppBar(
+          leading: const BackButtonCustom(),
+          title: Text(
+            AppWords.notifcation.tr,
+            style: AppTextStyle.textStyle24bold,
           ),
-        ));
+          centerTitle: true,
+          elevation: 0,
+          backgroundColor: AppColors.backgroundColor,
+          actions: [
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+              Stack(
+                clipBehavior: Clip.none,
+                children: [
+                  const Icon(
+                    Icons.notifications,
+                    size: 35,
+                    color: AppColors.textColor,
+                  ),
+                  Positioned(
+                      left: 9.w,
+                      top: 4.h,
+                      child: Container(
+                        width: 15.w,
+                        height: 15.h,
+                        decoration: const ShapeDecoration(
+                            shape: CircleBorder(), color: Colors.red),
+                      )),
+                ],
+              )
+            ]),
+          ],
+        ),
+        body: isDeleted
+            ? Center(
+                child: Text(
+                  ' You have no notifications',
+                  style: AppTextStyle.textStyle24bold,
+                ),
+              )
+            : Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Wrap(spacing: 10, runSpacing: 10, children: [
+                        ...List.generate(
+                            1,
+                            (index) => InkWell(
+                                onTap: deleteContainer,
+                                child: const CustomNavgation())),
+                      ])
+                    ],
+                  ),
+                ),
+              ));
   }
 }
 
 class CustomNavgation extends StatelessWidget {
   const CustomNavgation({
     super.key,
+    this.onTap,
   });
-
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -85,13 +113,25 @@ class CustomNavgation extends StatelessWidget {
             style: AppTextStyle.textStyle16bold.copyWith(color: Colors.grey)),
         Align(
           alignment: Alignment.bottomRight,
-          child: Image.asset(
-            height: 20,
-            AppImages.schedul,
-            color: AppColors.textColor,
-            fit: BoxFit.fill,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Image.asset(
+                height: 20,
+                AppImages.schedul,
+                color: AppColors.textColor,
+                fit: BoxFit.fill,
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              GestureDetector(
+                onTap: onTap,
+                child: const Icon(Icons.delete, color: AppColors.textColor),
+              )
+            ],
           ),
-        )
+        ),
       ]),
     );
   }

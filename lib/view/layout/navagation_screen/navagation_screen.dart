@@ -6,11 +6,17 @@ import 'package:fei_app/helper/utils/app_images.dart';
 import 'package:fei_app/view/layout/chats_screen/chats_screen/chat_screen.dart';
 import 'package:fei_app/view/layout/home_screen/home_screen.dart';
 import 'package:fei_app/view/layout/labs_screen/labs_screen.dart';
+import 'package:fei_app/view/layout/layout_doctors/doctor_screens/doctor_home_screen/doctor_home_screen.dart';
+import 'package:fei_app/view/layout/layout_doctors/doctor_screens/mybooking_screen/mybooking_screen.dart';
+import 'package:fei_app/view/layout/layout_doctors/doctor_screens/patientes_screen/patientes_screen.dart';
+import 'package:fei_app/view/layout/layout_doctors/doctor_screens/profile_screen/profile_screen.dart';
 
 import 'package:fei_app/view/layout/profile_screen/profile_screen.dart';
 import 'package:fei_app/view/layout/profile_screen/scan_screen.dart';
 import 'package:fei_app/view/layout/profile_screen/widgets/Profile_screen_inbourding.dart';
+import 'package:fei_app/view/layout/splash_screen/logo_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class BottomNavigationBarScreen extends StatefulWidget {
   const BottomNavigationBarScreen({super.key});
@@ -29,12 +35,28 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
     const ScanScreen(),
     const ProfileScreenOnboarding(),
   ];
+  final List<Widget> _pagesdoctor = [
+    const DoctorHomeScreen(),
+    const ChatScreen(),
+    const bookingScreen(),
+    const PatientesScreen(),
+    //const ProfileScreenDoctor(),
+    const ProfileScreenOnboarding(),
+  ];
+  String? message;
 
   @override
   Widget build(BuildContext context) {
+    final dynamic argument = Get.arguments;
+    if (argument is String) {
+      message = argument;
+    }
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      body: _pages[_selectedIndex],
+      body: argument == Screen.patientScreen
+          ? _pages[_selectedIndex]
+          : _pagesdoctor[_selectedIndex],
       bottomNavigationBar: ConvexAppBar(
           elevation: 0,
           color: AppColors.textColor,
@@ -77,10 +99,14 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
                         radius: 5,
                         backgroundColor: AppColors.backgroundColor,
                         child: Image.asset(
-                          AppImages.lung,
+                          argument == Screen.patientScreen
+                              ? AppImages.lung
+                              : AppImages.mybooking,
                         ))
                     : Image.asset(
-                        AppImages.lung,
+                        argument == Screen.patientScreen
+                            ? AppImages.lung
+                            : AppImages.mybooking,
                         color: AppColors.textColor,
                       )),
             TabItem(
@@ -89,11 +115,15 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
                         radius: 5,
                         backgroundColor: AppColors.backgroundColor,
                         child: Image.asset(
-                          AppImages.camerascan,
+                          argument == Screen.patientScreen
+                              ? AppImages.camerascan
+                              : AppImages.menu,
                           color: AppColors.textColor,
                         ))
                     : Image.asset(
-                        AppImages.camerascan,
+                        argument == Screen.patientScreen
+                            ? AppImages.camerascan
+                            : AppImages.menu,
                         color: AppColors.textColor,
                       )),
             TabItem(

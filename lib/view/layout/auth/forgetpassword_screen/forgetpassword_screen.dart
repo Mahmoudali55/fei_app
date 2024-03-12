@@ -26,38 +26,40 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
     return Scaffold(
         body: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          LogeScreen(
-            image: AppImages.forgetPassword,
-            title: AppWords.forget.tr,
-            style: AppTextStyle.textStyle20regular,
-          ),
-          const SizedBox(height: 40),
-          Text(
-            AppWords.email.tr,
-            style: AppTextStyle.textStyle20medium,
-          ),
-          CustomTextField(
-              onTap: () {},
-              controller: emailController,
-              hintText: 'Enter your Email',
-              inputType: TextInputType.emailAddress,
-              fillColor: AppColors.hintColor,
-              textFieldValidType: TextFieldValidatorType.Email,
-              currentFocusNode: email,
-              nextFocusNode: email),
-          const SizedBox(height: 60),
-          CustomButton(
-            title: AppWords.send.tr,
-            style: AppTextStyle.textStyle24medium
-                .copyWith(color: AppColors.backgroundColor),
-            onPress: () {
-              goToScreen(screenNames: ScreenNames.restPasswordScreen);
-            },
-          )
-        ],
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            LogeScreen(
+              image: AppImages.forgetPassword,
+              title: AppWords.forget.tr,
+              style: AppTextStyle.textStyle20regular,
+            ),
+            const SizedBox(height: 40),
+            Text(
+              AppWords.email.tr,
+              style: AppTextStyle.textStyle20medium,
+            ),
+            CustomTextField(
+                onTap: () {},
+                controller: emailController,
+                hintText: 'Enter your Email',
+                inputType: TextInputType.emailAddress,
+                fillColor: AppColors.hintColor,
+                textFieldValidType: TextFieldValidatorType.Email,
+                currentFocusNode: email,
+                nextFocusNode: email),
+            const SizedBox(height: 60),
+            CustomButton(
+              title: AppWords.send.tr,
+              style: AppTextStyle.textStyle24medium
+                  .copyWith(color: AppColors.backgroundColor),
+              onPress: () {
+                goToScreen(screenNames: ScreenNames.restPasswordScreen);
+              },
+            )
+          ],
+        ),
       ),
     ));
   }

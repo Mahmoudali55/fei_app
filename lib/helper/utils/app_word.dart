@@ -212,4 +212,44 @@ class AppWords {
   static const String prodctiondescraption11 = 'prventationdescraption11';
   static const String prodctiondescraption12 = 'prventationdescraption12';
   static const String prodctiondescraption13 = 'prventationdescraption13';
+  //doctor appword
+  static const String hospitals = 'hospitals';
+  static const String plans = 'plans';
+  static const String labResult = 'labResult';
+  static const String reviews = 'reviews';
+  static const String hospitalsName = 'hospitalName';
+  static const String scheduledSurgries = 'scheduledSurgries';
+  static const String patientName = 'patientName';
+  static const String time = 'time';
+  static const String date = 'date';
+
+  static const String myBooking = 'myBooking';
+  static const String patientID = 'patientID';
+  static const String upcoming = 'Upcoming';
+  static const String completed = 'Completed';
+  static const String cancelled = 'Cancelled';
+  static const String addComment = 'AddComment';
+  static const String addPlan = 'AddPlan';
+  static const String rescedual = 'Rescedual';
+  static const String problem = 'problem:';
+  static const String upCommingA = 'UpComming Appointment:';
+  static const String hospitalName = 'Hospital Name';
+  static const String paymentStatus = 'Payment Status';
+  static const String amount = 'Amount';
+  static const String seeLabResult = 'See Lab Result';
+  static const String problem1 = 'problem1';
+  static const String problem2 = 'problem2';
+  static const String problem3 = 'problem3';
+  static const String problem4 = 'problem4';
+  static const String problem5 = 'problem5';
+  static const String cancel1 = 'cancel1';
+  static const String cancel2 = 'cancel2';
+  static const String cancel3 = 'cancel3';
+  static const String cancel4 = 'cancel4';
+  static const String cancel5 = 'cancel5';
+  static const String cancel6 = 'cancel6';
+  static const String cancelAppointment = 'CancelAppointment';
+  static const String paied = 'Paied';
+  static const String cancel = 'Cancel';
+  static const String reason = 'reason';
 }

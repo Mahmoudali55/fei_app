@@ -76,7 +76,8 @@ var en = {
   'bestseller': 'Best seller',
   'addToCart': 'Add To Cart',
   'oRCode': 'QR Code',
-  'textScan': 'Scanning the QR code gives you accurate X-ray results',
+  'textScan':
+      'Scanning the QR code gives you accurate X-ray results, Blod Tests and Prescriptions. ',
   'textbuttonscan': 'Scan',
   'clear': 'Clear',
   'healthtestpage': 'Health Test',
@@ -180,7 +181,7 @@ var en = {
   'treatment': 'Treatment',
   'preventation': 'Preventation',
   'definitionofPulmonaryEmbolism descraption:':
-      'Lung thrombosis occurs as a result of blood\nclots that travel to the lungs\n from the legs, which causes a blockage in one\n of the pulmonary arteries and the occurrence of\n what is called a pulmonary embolism,\n according to what was reported by the “Web \nMedicine” website.',
+      'Lung thrombosis occurs as a result of blood\nclots that travel to the lungs\n from the legs, which causes a blockage in one\n of the pulmonary arteries and the\n occurrence of what is called a pulmonary embolism,\n according to what was reported by the “Web \nMedicine” website.',
   'howdoesithappendescraption1':
       'A blood clot occurs in a specific artery in the\n lungs. These blood clots usually come from\n the deep leg veins in the legs. This condition\n is known as deep vein thrombosis (DVT)\n.',
   'howdoesithappendescraption2':
@@ -208,7 +209,7 @@ var en = {
   'treatmentdescraption2':
       'Compression stockings, which apply\n constant pressure to the legs, help the veins\n and leg muscles move blood more efficiently \nand provide a safe, simple and inexpensive\n way to prevent blood from stagnating.',
   'treatmentdescraption4':
-      'It is also helpful to raise the legs, when\n possible and during the night, or raise the bottom\n of the bed by 4 cm to 6 cm.',
+      'It is also helpful to raise the legs, when\n possible and during the night, or raise\n the bottom of the bed by 4 cm to 6 cm.',
   'treatmentdescraption3':
       'Compression stockings, which apply\n constant pressure to the legs, help the veins\n and leg muscles move blood more efficiently \nand provide a safe, simple and inexpensive\n way to prevent blood from stagnating.',
   'prventationdescraption1':
@@ -218,7 +219,7 @@ var en = {
   'prventationdescraption3':
       'It is also recommended during travel to flex\n the ankles of the feet every 15-30 minutes, in\n addition to wearing support socks, which\n help enhance blood circulation and fluid\n movement in the legs.',
   'prventationdescraption4':
-      'Move the body: Do physical movement regularly.\n It is recommended to exercise regularly, such as\n walking, swimming, or riding a bicycle, in order to\n enhance blood circulation.',
+      'Move the body: Do physical movement\n regularly.It is recommended to exercise regularly, such as\n walking, swimming, or riding a bicycle, in order to\n enhance blood circulation.',
   'prventationdescraption5':
       'Proper nutrition: Eat balanced meals that contain\n sufficient amounts of fruits, vegetables, healthy\n proteins, and whole grains, and avoid eating\n fatty and salty foods in large quantities.',
   'prventationdescraption6':
@@ -241,4 +242,46 @@ var en = {
       'Avoid medications that cause clots: Avoid taking\n medications that can increase the risk of \npulmonary clots, such as some types of birth\n control pills and synthetic hormones.',
   'hlepme':
       'You Can Get In Touch With Us Through Below Platforms.\n Our Team Will Reach Out To You As Soon As It Would Be Possible.',
+  //doctor en
+
+  'hospitals': 'Hospitals',
+  'plans': 'Plans',
+  'labResult': 'Lab Result',
+  'reviews': 'Reviews',
+  'hospitalName': 'Al-mostaabl Hospital',
+  'scheduledSurgries': 'Scheduled Surgries',
+  'patientName': 'Aly Fahmy',
+  'time': '09:00 - 10:00',
+  'date': 'Monday, 26 July',
+
+  'myBooking': 'My Booking',
+  'patientID': '#1238961',
+
+  'Upcoming': 'Upcoming',
+  'Completed': 'Completed',
+  'Cancelled': 'Cancelled',
+  'AddComment': 'Add Comment',
+  'AddPlan': 'Add Plan',
+  'Rescedual': 'Rescedual',
+  'problem:': 'problem:',
+  'UpComming Appointment:': 'UpComming Appointment:',
+  'Hospital Name': 'Hospital Name',
+  'Payment Status': 'Payment Status',
+  'Amount': 'Amount',
+  'See Lab Result': 'See Lab Result',
+  'problem1': ' Chest pain.',
+  'problem2': ' Increased breathing and heart rate.',
+  'problem3': ' Hemoptysis.',
+  'problem4': ' Cough.',
+  'problem5': ' Bluish skin.',
+  'cancel1': 'Scedual Change',
+  'cancel2': 'Weather Condition',
+  'cancel3': 'Unexpected Work',
+  'cancel4': 'Childcare Issue',
+  'cancel5': 'Tavel Delays',
+  'cancel6': 'Other',
+  'CancelAppointment': 'Cancel Appointment',
+  'Paied': 'Paied',
+  'Cancel': 'Cancel',
+  'reason': 'Please select the reason for Cancellation :'
 };

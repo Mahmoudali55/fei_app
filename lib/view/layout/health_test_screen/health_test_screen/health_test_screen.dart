@@ -27,7 +27,7 @@ class _HealhTestScreenState extends State<HealhTestScreen> {
           leading: const BackButtonCustom(),
         ),
         body: const Padding(
-          padding: EdgeInsets.symmetric(vertical: 10),
+          padding: EdgeInsets.symmetric(vertical: 30),
           child: TeastViewBody(),
         ));
   }

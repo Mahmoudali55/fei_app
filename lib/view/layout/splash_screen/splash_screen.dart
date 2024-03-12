@@ -1,18 +1,15 @@
-import 'dart:io';
-
 import 'package:fei_app/helper/model/custom_model_splash.dart';
 import 'package:fei_app/helper/routes/routes.dart';
 import 'package:fei_app/helper/utils/app_colors.dart';
 import 'package:fei_app/helper/utils/app_images.dart';
 import 'package:fei_app/helper/utils/app_word.dart';
-import 'package:fei_app/view/customs_widgets/custom_button/custom_button.dart';
-import 'package:fei_app/view/layout/auth/login_screen/login_screen.dart';
+
+import 'package:fei_app/view/layout/splash_screen/logo_screen.dart';
 import 'package:fei_app/view/layout/splash_screen/widgets/custom_splash_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
 import 'package:get/get.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
+
 import 'package:get/get_utils/get_utils.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -42,8 +39,14 @@ class _SplashScreenState extends State<SplashScreen> {
     super.dispose();
   }
 
+  String? message;
   @override
   Widget build(BuildContext context) {
+    final dynamic argument = Get.arguments;
+
+    if (argument is String) {
+      message = argument;
+    }
     return Scaffold(
         backgroundColor: AppColors.backgroundColor,
         body: PageView(
@@ -96,7 +99,15 @@ class _SplashScreenState extends State<SplashScreen> {
             CustomSplashScreen(
               splashModel: SplashModel(
                   onPress: () {
-                    goToScreen(screenNames: ScreenNames.loginScreen);
+                    if (argument == Screen.patientScreen) {
+                      goToScreen(
+                          screenNames: ScreenNames.loginScreen,
+                          arguments: Screen.patientScreen);
+                    } else {
+                      goToScreen(
+                          screenNames: ScreenNames.loginScreen,
+                          arguments: Screen.doctorScreen);
+                    }
                   },
                   image: AppImages.splash3,
                   title: AppWords.splashtitle3.tr,

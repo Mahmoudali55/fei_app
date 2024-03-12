@@ -1,6 +1,7 @@
 import 'package:fei_app/helper/routes/routes.dart';
 import 'package:fei_app/helper/utils/app_textstyle.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class TestResultScreen extends StatefulWidget {
@@ -13,7 +14,7 @@ class TestResultScreen extends StatefulWidget {
 class _TestResultScreenState extends State<TestResultScreen> {
   Future<void> _selectDate(BuildContext context) async {
     Future.delayed(const Duration(seconds: 2), () {
-      goToScreen(screenNames: ScreenNames.bottomNavigationBar);
+      goToScreen(screenNames: ScreenNames.homeScreen);
     });
   }
 

@@ -24,6 +24,20 @@ import 'package:fei_app/view/layout/home_screen/medicine_reminder_screen/medicin
 import 'package:fei_app/view/layout/home_screen/notification_screen/notifaction_screen.dart';
 import 'package:fei_app/view/layout/labs_screen/lab_appointment.dart';
 import 'package:fei_app/view/layout/labs_screen/labs_screen.dart';
+import 'package:fei_app/view/layout/layout_doctors/doctor_screens/cancel_screen/cancel_sceeen.dart';
+import 'package:fei_app/view/layout/layout_doctors/doctor_screens/doctor_home_screen/doctor_home_screen.dart';
+
+import 'package:fei_app/view/layout/layout_doctors/doctor_screens/hospitals_screen/hospital_screen.dart';
+import 'package:fei_app/view/layout/layout_doctors/doctor_screens/lab_result_screen/lab_resulut_screen.dart';
+import 'package:fei_app/view/layout/layout_doctors/doctor_screens/mybooking_screen/mybooking_screen.dart';
+import 'package:fei_app/view/layout/layout_doctors/doctor_screens/patientes_screen/patientes_profile_screen.dart';
+import 'package:fei_app/view/layout/layout_doctors/doctor_screens/patientes_screen/patientes_screen.dart';
+import 'package:fei_app/view/layout/layout_doctors/doctor_screens/prescription_screen/prescription_screen.dart';
+import 'package:fei_app/view/layout/layout_doctors/doctor_screens/prescriptions_screen/prescriptions_screen.dart';
+import 'package:fei_app/view/layout/layout_doctors/doctor_screens/profile_screen/profile_screen.dart';
+import 'package:fei_app/view/layout/layout_doctors/doctor_screens/review_screen/review_screen.dart';
+import 'package:fei_app/view/layout/layout_doctors/doctor_screens/sechdualed_surgries_screen/sechdualed_%20surgries.dart';
+
 import 'package:fei_app/view/layout/meun_screen/help_Center_Screen/help_Center_Screen.dart';
 
 import 'package:fei_app/view/layout/meun_screen/meun_screen/meun_screen/meun_screen.dart';
@@ -92,6 +106,26 @@ appRoutes(context) {
     ScreenNames.seeMore: (context) => const SeeMore(),
     ScreenNames.paymentMethod: (context) => const PaymentMetodsScreen(),
     ScreenNames.addCardPayment: (context) => const AddCardPayment(),
+    // doctor screen
+    // ScreenNames.doctorBottomNavigationBarScreen: (context) =>
+    //     const DoctorBottomNavigationBarScreen(),
+    // ScreenNames.hospitalScreen: (context) => const HospitalsScreen(),
+    // ScreenNames.scheduleScreen: (context) => const ScheduleScreen(),
+    // ScreenNames.labResultScreen: (context) => const LabResultScreen(),
+    // ScreenNames.cancelBookScreen: (context) => const CancelBook(),
+    ScreenNames.patientScreen: (context) => const PatientesScreen(),
+    ScreenNames.bookingScreen: (context) => const bookingScreen(),
+    ScreenNames.profileScreendoctor: (context) => const ProfileScreenDoctor(),
+    ScreenNames.homeScreendoctor: (context) => const DoctorHomeScreen(),
+    ScreenNames.cancelBookScreen: (context) => const CancelScreen(),
+    ScreenNames.labResultScreen: (context) => const LabResulutScreen(),
+    ScreenNames.reviewScreen: (context) => const ReviewScreen(),
+    ScreenNames.prescriptionsScreen: (context) => const PrescriptionsScreen(),
+    ScreenNames.prescriptionScreen: (context) => const PrescriptionScreen(),
+    ScreenNames.sechdualedSurgries: (context) => const SechdualedSurgries(),
+    ScreenNames.hospitalScreen: (context) => const HospitalsScreen(),
+    ScreenNames.patientesProfileScreen: (context) =>
+        const PatientesProfileScreen(),
   };
   return routes;
 }
@@ -139,4 +173,20 @@ class ScreenNames {
   static const String seeMore = 'SeeMore';
   static const String paymentMethod = 'paymentMethod';
   static const String addCardPayment = 'addCardPqyment';
+  //doctor route
+  static const String doctorBottomNavigationBarScreen =
+      'doctorBottomNavigationBarScreen';
+  static const String hospitalScreen = 'hospitalScreen';
+  static const String scheduleScreen = 'scheduleScreen';
+  static const String labResultScreen = 'labResultScreen';
+  static const String bookingScreen = 'bookingScreen';
+  static const String patientScreen = 'patientInfoScreen';
+  static const String homeScreendoctor = 'homeScreendoctor';
+  static const String profileScreendoctor = 'profileScreendoctor';
+  static const String cancelBookScreen = 'cancelBookScreen';
+  static const String reviewScreen = 'reviewScreen';
+  static const String prescriptionsScreen = 'PrescriptionsScreen';
+  static const String prescriptionScreen = 'PrescriptionScreen';
+  static const String patientesProfileScreen = 'PatientesProfileScreen';
+  static const String sechdualedSurgries = 'SechdualedSurgries';
 }
