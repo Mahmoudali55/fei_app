@@ -72,23 +72,13 @@ class CardScreen extends StatelessWidget {
                 ),
                 CustomButton(
                   height: 44,
-                  width: 287.w,
-                  borderRadius: 7,
-                  title: 'View  Cart ',
-                  style: AppTextStyle.textStyle14bold
-                      .copyWith(color: AppColors.backgroundColor),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                CustomButton(
-                  height: 44,
-                  width: 287.w,
+                  width: 250.w,
                   borderRadius: 7,
                   title: 'Checkout',
                   style: AppTextStyle.textStyle14medium,
-                  backgroundColor: AppColors.backgroundColor,
-                  borderColor: AppColors.textColor,
+                ),
+                const SizedBox(
+                  height: 20,
                 )
               ],
             ),

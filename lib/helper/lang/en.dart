@@ -43,7 +43,7 @@ var en = {
   'seifPharmacy': 'Seif Pharmacy',
   'healthtest': 'Health\n Test',
   'medicinereminder': 'Medicine\n Reminder',
-  'protection': 'Preventation',
+  'protection': 'Prescriptions',
   'pulmonologist': 'Pulmonologist',
   'locationdoctor': 'Dakahlya,Mansoura',
   'technoScan': 'TechnoScan',
@@ -162,9 +162,11 @@ var en = {
   'thu': 'Thu',
   'fri': 'Fri',
   'medicalHistory': 'Medical History',
-  'scanHistory': 'Scan ',
+  'scanHistory': 'Scans ',
   'testHistory': 'Test ',
+  'mode': 'Mode',
   'Prescriptions': 'Prescriptions',
+  'appoinments': 'Appoinments',
   'aboutDoctor':
       'Neurologist at Abha International Diagnostics Hospital, with 15 years of experience in the field of intensive medicine.',
   'aboutlab':
@@ -181,7 +183,7 @@ var en = {
   'treatment': 'Treatment',
   'preventation': 'Preventation',
   'definitionofPulmonaryEmbolism descraption:':
-      'Lung thrombosis occurs as a result of blood\nclots that travel to the lungs\n from the legs, which causes a blockage in one\n of the pulmonary arteries and the\n occurrence of what is called a pulmonary embolism,\n according to what was reported by the “Web \nMedicine” website.',
+      'Lung thrombosis occurs as a result of blood\nclots that travel to the lungs\n from the legs, which causes a blockage in one\n of the pulmonary arteries and the\n occurrence of what is called a pulmonary\n embolism,\naccording to what was reported by the “Web \nMedicine” website.',
   'howdoesithappendescraption1':
       'A blood clot occurs in a specific artery in the\n lungs. These blood clots usually come from\n the deep leg veins in the legs. This condition\n is known as deep vein thrombosis (DVT)\n.',
   'howdoesithappendescraption2':

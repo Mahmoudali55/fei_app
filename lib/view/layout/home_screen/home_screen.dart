@@ -21,6 +21,7 @@ import 'package:fei_app/view/layout/home_screen/widgets/custom_home_loge.dart';
 import 'package:fei_app/view/layout/home_screen/widgets/custom_services.dart';
 
 import 'package:fei_app/view/layout/meun_screen/meun_screen/meun_screen/meun_screen.dart';
+import 'package:fei_app/view/layout/meun_screen/meun_screen/meun_screen/meun_screen2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_utils/get_utils.dart';
@@ -137,7 +138,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         key: menuDrawer,
-        drawer: const MeunScreen(),
+        // drawer: MeunScreen(),
         drawerEnableOpenDragGesture: true,
         body: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
@@ -145,10 +146,9 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 35),
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              Builder(builder: (context) {
-                return CustomHomeLoge(onTap: () {
-                  menuDrawer.currentState!.openDrawer();
-                });
+              CustomHomeLoge(onTap: () {
+                // menuDrawer.currentState!.openDrawer();
+                goToScreen(screenNames: ScreenNames.meunScreen);
               }),
               Container(
                 height: 50.h,

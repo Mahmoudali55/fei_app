@@ -146,6 +146,8 @@ var ar = {
   'patientsNumber': '٥٠',
   'experienceNumber': '٠',
   'rateNumber': '٤.٠',
+  'appoinments': 'المواعيد',
+  'mode': 'الوضع',
   'aboutDoctor':
       'طبيب أعصاب في مستشفى ابها الدولية ،يتمتع بخبرة ١٥ عاما في مجال الطب المكثف',
   'aboutlab':

@@ -1,8 +1,10 @@
 import 'package:fei_app/helper/routes/routes.dart';
 import 'package:fei_app/helper/utils/app_images.dart';
+import 'package:fei_app/helper/utils/app_textstyle.dart';
 import 'package:fei_app/helper/utils/app_word.dart';
 import 'package:fei_app/view/layout/profile_screen/widgets/Custom_setting_screen_item.dart';
 import 'package:fei_app/view/layout/profile_screen/widgets/Profile_screen_inbourding.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -46,26 +48,8 @@ class CustomSetting extends StatelessWidget {
             ),
             customSettingItem(
               ontap: () {},
-              image: AppImages.schedul,
-              text: AppWords.schedulele.tr,
-              Scrren: '',
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            customSettingItem(
-              ontap: () {},
-              image: AppImages.card.tr,
-              text: AppWords.payment.tr,
-              Scrren: ScreenNames.paymentMethod,
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            customSettingItem(
-              ontap: () {},
               image: AppImages.logout.tr,
-              text: AppWords.logout.tr,
+              text: 'Delete account',
               Scrren: ScreenNames.loginScreen,
             ),
           ],

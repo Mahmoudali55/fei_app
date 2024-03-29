@@ -7,6 +7,7 @@ import 'package:fei_app/view/layout/chats_screen/chats_screen/chat_screen.dart';
 import 'package:fei_app/view/layout/home_screen/home_screen.dart';
 import 'package:fei_app/view/layout/labs_screen/labs_screen.dart';
 import 'package:fei_app/view/layout/layout_doctors/doctor_screens/doctor_home_screen/doctor_home_screen.dart';
+import 'package:fei_app/view/layout/layout_doctors/doctor_screens/meun_screen/meun_screen2.dart';
 import 'package:fei_app/view/layout/layout_doctors/doctor_screens/mybooking_screen/mybooking_screen.dart';
 import 'package:fei_app/view/layout/layout_doctors/doctor_screens/patientes_screen/patientes_screen.dart';
 import 'package:fei_app/view/layout/layout_doctors/doctor_screens/profile_screen/profile_screen.dart';
@@ -39,7 +40,8 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
     const DoctorHomeScreen(),
     const ChatScreen(),
     const bookingScreen(),
-    const PatientesScreen(),
+    //const PatientesScreen(),
+    MeunScreenDoctor(),
     //const ProfileScreenDoctor(),
     const ProfileScreenOnboarding(),
   ];

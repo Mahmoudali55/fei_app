@@ -8,7 +8,6 @@ import 'package:fei_app/view/customs_widgets/custom_button/back_button.dart';
 import 'package:fei_app/view/customs_widgets/custom_button/custom_button.dart';
 import 'package:fei_app/view/customs_widgets/custom_text_form_filed/custom_text_form.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';

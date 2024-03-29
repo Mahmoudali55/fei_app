@@ -8,6 +8,7 @@ import 'package:fei_app/view/customs_widgets/custom_text_form_filed/custom_text_
 import 'package:fei_app/view/layout/meun_screen/help_Center_Screen/widgets/custom_Contactus.dart';
 import 'package:fei_app/view/layout/meun_screen/help_Center_Screen/widgets/custome_fAq_screen.dart';
 import 'package:fei_app/view/layout/meun_screen/help_Center_Screen/widgets/custome_help_center.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -30,6 +31,7 @@ class HelpCenterScreen extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 20),
           child: Column(children: [
             CustomTextField(
+              height: 55.h,
               onTap: () {},
               currentFocusNode: FocusNode(),
               nextFocusNode: FocusNode(),
@@ -56,7 +58,10 @@ class HelpCenterScreen extends StatelessWidget {
             ),
             const Expanded(
               child: TabBarView(
-                children: [CustomeHelpCenter(), CustomContactUs()],
+                children: [
+                  SingleChildScrollView(child: CustomeHelpCenter()),
+                  CustomContactUs()
+                ],
               ),
             ),
           ]),

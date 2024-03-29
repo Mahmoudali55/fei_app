@@ -20,7 +20,7 @@ class Medicinereminderdetiles extends StatefulWidget {
 }
 
 class _MedicinereminderdetilesState extends State<Medicinereminderdetiles> {
-  int count = -1;
+  int count = 0;
   int countpage = 0;
   @override
   Widget build(BuildContext context) {
@@ -119,42 +119,21 @@ class _MedicinereminderdetilesState extends State<Medicinereminderdetiles> {
             height: 15,
           ),
           Wrap(direction: Axis.horizontal, children: [
-            Container(
-                margin: EdgeInsets.only(right: 10),
-                height: 62.h,
-                width: 117.w,
-                decoration: BoxDecoration(
-                    shape: BoxShape.rectangle,
-                    border:
-                        Border.all(color: AppColors.primaryColor, width: 1.5),
-                    color: count >= 0
-                        ? AppColors.primaryColor
-                        : AppColors.backgroundColor,
-                    borderRadius: BorderRadius.circular(12))),
-            Container(
-                margin: EdgeInsets.only(right: 10),
-                height: 62.h,
-                width: 117.w,
-                decoration: BoxDecoration(
-                    shape: BoxShape.rectangle,
-                    border:
-                        Border.all(color: AppColors.primaryColor, width: 1.5),
-                    color: count >= 1
-                        ? AppColors.primaryColor
-                        : AppColors.backgroundColor,
-                    borderRadius: BorderRadius.circular(12))),
-            Container(
-                margin: EdgeInsets.only(right: 10),
-                height: 62.h,
-                width: 117.w,
-                decoration: BoxDecoration(
-                    shape: BoxShape.rectangle,
-                    border:
-                        Border.all(color: AppColors.primaryColor, width: 1.5),
-                    color: count >= 2
-                        ? AppColors.primaryColor
-                        : AppColors.backgroundColor,
-                    borderRadius: BorderRadius.circular(12))),
+            ...List.generate(
+              3,
+              (index) => Container(
+                  margin: EdgeInsets.only(right: 10),
+                  height: 62.h,
+                  width: 117.w,
+                  decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                      border:
+                          Border.all(color: AppColors.primaryColor, width: 1.5),
+                      color: count == index
+                          ? AppColors.primaryColor
+                          : AppColors.backgroundColor,
+                      borderRadius: BorderRadius.circular(12))),
+            )
           ]),
           SizedBox(
             height: 50.h,
@@ -162,7 +141,7 @@ class _MedicinereminderdetilesState extends State<Medicinereminderdetiles> {
           CustomButton(
             onPress: () {
               setState(() {
-                count + 1 == 3 ? count = -1 : count++;
+                count + 1 == 3 ? count = 0 : count++;
 
                 print(count);
               });

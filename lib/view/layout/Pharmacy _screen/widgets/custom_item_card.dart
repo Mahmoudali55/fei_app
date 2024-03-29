@@ -19,99 +19,99 @@ class _ItemCardState extends State<ItemCard> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const Divider(
-          color: AppColors.textColor,
-          indent: 10,
-          endIndent: 10,
-          thickness: .5,
-          height: 1,
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        Row(children: [
-          Image.asset(AppImages.adol, width: 100, height: 100),
-          const SizedBox(
-            width: 10,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 7),
+      child: Column(
+        children: [
+          const Divider(
+            color: AppColors.textColor,
+            indent: 10,
+            endIndent: 10,
+            thickness: .5,
+            height: 1,
           ),
-          Column(children: [
-            Text(
-              'adol 500mg \n 24 tablets',
-              style: AppTextStyle.textStyle14light,
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Text(
-              '250 EGP',
-              style: AppTextStyle.textStyle14light,
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Container(
-              margin: const EdgeInsets.only(bottom: 10),
-              height: 33.h,
-              width: 86.w,
-              decoration: BoxDecoration(
-                border: Border.all(color: AppColors.textColor, width: 1),
+          const SizedBox(
+            height: 10,
+          ),
+          Align(
+            alignment: Alignment.topLeft,
+            child: GestureDetector(
+              onTap: () {},
+              child: Icon(
+                Icons.close,
               ),
-              child:
-                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      if (index > 0) index--;
-                    });
-                  },
-                  child: Text(
-                    '-',
-                    style: AppTextStyle.textStyle14semiBold,
-                  ),
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                Text(
-                  index.toString(),
-                  style: AppTextStyle.textStyle14semiBold,
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      index++;
-                    });
-                  },
-                  child: Text(
-                    '+',
-                    style: AppTextStyle.textStyle14semiBold,
-                  ),
-                ),
-              ]),
             ),
+          ),
+          Row(children: [
+            Image.asset(AppImages.adol, width: 100, height: 100),
             const SizedBox(
-              width: 20,
-            )
-          ]),
-          Row(
-            children: [
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.close, color: AppColors.textColor),
+              width: 10,
+            ),
+            Column(children: [
+              Text(
+                'adol 500mg \n 24 tablets',
+                style: AppTextStyle.textStyle14light,
+              ),
+              const SizedBox(
+                height: 10,
               ),
               Text(
-                'Remove',
+                '250 EGP',
                 style: AppTextStyle.textStyle14light,
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Container(
+                margin: const EdgeInsets.only(bottom: 10),
+                height: 33.h,
+                width: 86.w,
+                decoration: BoxDecoration(
+                  border: Border.all(color: AppColors.textColor, width: 1),
+                ),
+                child:
+                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        if (index > 0) index--;
+                      });
+                    },
+                    child: Text(
+                      '-',
+                      style: AppTextStyle.textStyle14semiBold,
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Text(
+                    index.toString(),
+                    style: AppTextStyle.textStyle14semiBold,
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        index++;
+                      });
+                    },
+                    child: Text(
+                      '+',
+                      style: AppTextStyle.textStyle14semiBold,
+                    ),
+                  ),
+                ]),
+              ),
+              const SizedBox(
+                width: 20,
               )
-            ],
-          )
-        ])
-      ],
+            ]),
+          ])
+        ],
+      ),
     );
   }
 }

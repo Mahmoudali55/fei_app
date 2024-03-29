@@ -156,6 +156,9 @@ class AppWords {
   static const String question14 = 'q14';
   static const String question15 = 'q15';
   static const String price = "price";
+  static const String mode = "mode";
+  static const String appoinments = 'appoinments';
+
   static const String location = 'location';
   static const String patients = 'Patients';
   static const String experience = 'Experience';

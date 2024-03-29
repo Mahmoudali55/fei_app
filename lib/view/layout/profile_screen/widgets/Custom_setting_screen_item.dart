@@ -38,9 +38,9 @@ class customSettingItem extends StatelessWidget {
         InkWell(
           onTap: ontap(),
           child: Text(text,
-              style: text == AppWords.logout.tr
-                  ? AppTextStyle.textStyle20medium.copyWith(color: Colors.red)
-                  : AppTextStyle.textStyle20medium),
+              style: text == 'Delete account'
+                  ? AppTextStyle.textStyle24medium.copyWith(color: Colors.red)
+                  : AppTextStyle.textStyle24medium),
         ),
       ],
     );

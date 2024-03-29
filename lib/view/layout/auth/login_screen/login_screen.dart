@@ -156,20 +156,21 @@ class _LoginScreenState extends State<LoginScreen> {
                                           color: AppColors.backgroundColor),
                                   titleFontSize: 24.h,
                                   onPress: () {
-                                    if (formKey.currentState!.validate()) {
-                                      if (argument == Screen.patientScreen) {
-                                        goToScreen(
-                                            screenNames:
-                                                ScreenNames.bottomNavigationBar,
-                                            arguments: Screen.patientScreen);
-                                      } else {
-                                        goToScreen(
-                                            screenNames:
-                                                ScreenNames.bottomNavigationBar,
-                                            arguments: Screen.doctorScreen);
-                                      }
+                                    //if (formKey.currentState!.validate()) {
+                                    if (argument == Screen.patientScreen) {
+                                      goToScreen(
+                                          screenNames:
+                                              ScreenNames.bottomNavigationBar,
+                                          arguments: Screen.patientScreen);
+                                    } else {
+                                      goToScreen(
+                                          screenNames:
+                                              ScreenNames.bottomNavigationBar,
+                                          arguments: Screen.doctorScreen);
                                     }
-                                  }),
+                                  }
+                                  //}
+                                  ),
                               SizedBox(height: 10.h),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,

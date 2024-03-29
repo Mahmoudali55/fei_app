@@ -1,4 +1,3 @@
-import 'package:fei_app/view/customs_widgets/custom_logo/Custom_logo.dart';
 import 'package:fei_app/view/layout/Pharmacy%20_screen/card_screen.dart';
 import 'package:fei_app/view/layout/Pharmacy%20_screen/home_health_screen/home_health_screen.dart';
 import 'package:fei_app/view/layout/Pharmacy%20_screen/medications_screen/medications_screen.dart';
@@ -29,18 +28,26 @@ import 'package:fei_app/view/layout/layout_doctors/doctor_screens/doctor_home_sc
 
 import 'package:fei_app/view/layout/layout_doctors/doctor_screens/hospitals_screen/hospital_screen.dart';
 import 'package:fei_app/view/layout/layout_doctors/doctor_screens/lab_result_screen/lab_resulut_screen.dart';
+import 'package:fei_app/view/layout/layout_doctors/doctor_screens/medicine_reminder_screen/medicine_reminder.dart';
 import 'package:fei_app/view/layout/layout_doctors/doctor_screens/mybooking_screen/mybooking_screen.dart';
 import 'package:fei_app/view/layout/layout_doctors/doctor_screens/patientes_screen/patientes_profile_screen.dart';
 import 'package:fei_app/view/layout/layout_doctors/doctor_screens/patientes_screen/patientes_screen.dart';
+import 'package:fei_app/view/layout/layout_doctors/doctor_screens/payment_history/payment_history.dart';
 import 'package:fei_app/view/layout/layout_doctors/doctor_screens/prescription_screen/prescription_screen.dart';
 import 'package:fei_app/view/layout/layout_doctors/doctor_screens/prescriptions_screen/prescriptions_screen.dart';
 import 'package:fei_app/view/layout/layout_doctors/doctor_screens/profile_screen/profile_screen.dart';
 import 'package:fei_app/view/layout/layout_doctors/doctor_screens/review_screen/review_screen.dart';
 import 'package:fei_app/view/layout/layout_doctors/doctor_screens/sechdualed_surgries_screen/sechdualed_%20surgries.dart';
+import 'package:fei_app/view/layout/meun_screen/appointment/appointment_screen.dart';
 
 import 'package:fei_app/view/layout/meun_screen/help_Center_Screen/help_Center_Screen.dart';
 
 import 'package:fei_app/view/layout/meun_screen/meun_screen/meun_screen/meun_screen.dart';
+import 'package:fei_app/view/layout/meun_screen/meun_screen/meun_screen/meun_screen2.dart';
+import 'package:fei_app/view/layout/meun_screen/payment_history/payment_Details_Screen_doctor.dart';
+import 'package:fei_app/view/layout/meun_screen/payment_history/payment_detalis_screen_labs.dart';
+import 'package:fei_app/view/layout/meun_screen/payment_history/payment_detiles_screen_pharmes.dart';
+import 'package:fei_app/view/layout/meun_screen/payment_history/payment_history.dart';
 import 'package:fei_app/view/layout/navagation_screen/navagation_screen.dart';
 import 'package:fei_app/view/layout/payment_metods_screen/add_card_pqyment.dart';
 import 'package:fei_app/view/layout/payment_metods_screen/payment_metods_screen.dart';
@@ -58,7 +65,6 @@ import 'package:fei_app/view/layout/splash_screen/splash_screen.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 part 'app_navigator.dart';
 //add page routes here
@@ -126,6 +132,17 @@ appRoutes(context) {
     ScreenNames.hospitalScreen: (context) => const HospitalsScreen(),
     ScreenNames.patientesProfileScreen: (context) =>
         const PatientesProfileScreen(),
+    ScreenNames.appointmentScreen: (context) => const AppointmentScreen(),
+    ScreenNames.paymentHistory: (context) => const PaymentHistory(),
+    ScreenNames.paymentHistoryDetails: (context) =>
+        const PaymentDetailsDoctor(),
+    ScreenNames.paymentHistoryDetailsLabs: (context) =>
+        const PaymentDetailsLabs(),
+    ScreenNames.paymentHistoryDetailsPharmacy: (context) =>
+        const PaymentDetailsPharmacy(),
+    ScreenNames.paymentHistoryScreen: (context) => const PaymentHistoryScreen(),
+    ScreenNames.medicineReminderDoctor: (context) =>
+        const MedicineReminderDoctor(),
   };
   return routes;
 }
@@ -173,6 +190,12 @@ class ScreenNames {
   static const String seeMore = 'SeeMore';
   static const String paymentMethod = 'paymentMethod';
   static const String addCardPayment = 'addCardPqyment';
+  static const String appointmentScreen = 'appointmentScreen';
+  static const String paymentHistory = 'paymentHistory';
+  static const String paymentHistoryDetails = 'paymentHistoryDetails';
+  static const String paymentHistoryDetailsLabs = 'paymentHistoryDetailslabs';
+  static const String paymentHistoryDetailsPharmacy =
+      'paymentHistoryDetailspharmacy';
   //doctor route
   static const String doctorBottomNavigationBarScreen =
       'doctorBottomNavigationBarScreen';
@@ -189,4 +212,6 @@ class ScreenNames {
   static const String prescriptionScreen = 'PrescriptionScreen';
   static const String patientesProfileScreen = 'PatientesProfileScreen';
   static const String sechdualedSurgries = 'SechdualedSurgries';
+  static const String paymentHistoryScreen = 'PaymentHistoryScreen';
+  static const String medicineReminderDoctor = 'MedicineReminderDoctor';
 }

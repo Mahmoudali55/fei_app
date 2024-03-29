@@ -17,11 +17,15 @@ class UnCommingAppointment extends StatefulWidget {
     required this.titlebutton2,
     required this.isAccepted,
     required this.screenNames,
+    required this.image,
+    this.confirammassage,
   }) : super(key: key);
   final String titlebutton1;
   final String titlebutton2;
   final bool isAccepted;
   final String screenNames;
+  final String image;
+  final void Function()? confirammassage;
 
   @override
   State<UnCommingAppointment> createState() => _UnCommingAppointmentState();
@@ -55,7 +59,7 @@ class _UnCommingAppointmentState extends State<UnCommingAppointment> {
             height: 5.h,
           ),
           ListTile(
-              leading: Image.asset(AppImages.patient),
+              leading: Image.asset(widget.image),
               title: Text(
                 AppWords.patientName.tr,
               ),
@@ -85,33 +89,7 @@ class _UnCommingAppointmentState extends State<UnCommingAppointment> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               CustomButton(
-                onPress: () {
-                  setState(() {
-                    showDialog(
-                      context: context,
-                      builder: (context) => AlertDialog(
-                        backgroundColor: Colors.transparent,
-                        elevation: 0,
-                        actions: [
-                          Text('Appointment Confirmed ',
-                              style: AppTextStyle.textStyle28semiBold
-                                  .copyWith(color: AppColors.backgroundColor)),
-                          const Center(
-                            child: Icon(
-                              Icons.check_sharp,
-                              size: 80,
-                              color: AppColors.textColor,
-                            ),
-                          ),
-                        ],
-                      ),
-                    );
-                    Future.delayed(const Duration(seconds: 3), () {
-                      goToScreen(screenNames: ScreenNames.prescriptionsScreen);
-                    });
-                    selectedIndex = 0;
-                  });
-                },
+                onPress: widget.confirammassage,
                 backgroundColor: selectedIndex == 0
                     ? AppColors.primaryColor
                     : AppColors.backgroundColor,

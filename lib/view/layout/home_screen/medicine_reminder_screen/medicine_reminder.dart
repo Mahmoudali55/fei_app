@@ -72,102 +72,111 @@ class _MedicineReminderState extends State<MedicineReminder>
         subtitle: '2 times today',
         image: AppImages.rememberme1),
   ];
-
+  String? message;
   @override
   Widget build(BuildContext context) {
+    final dynamic argument = Get.arguments;
+
+    if (argument is String) {
+      message = argument;
+    }
     return DefaultTabController(
       length: 7,
       child: Scaffold(
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            showModalBottomSheet(
-              context: context,
-              builder: (BuildContext context) {
-                return Container(
-                  // height: 562.h,
-                  width: 430.w,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(16.0),
-                  ),
-                  padding: const EdgeInsets.all(16.0),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        Row(
-                          children: [
-                            Text(
-                              AppWords.addNewMedicine.tr,
-                              style: AppTextStyle.textStyle24bold,
-                            ),
-                            const Spacer(),
-                            IconButton(
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
-                              icon: const Icon(
-                                Icons.close,
-                              ),
-                            )
-                          ],
+        floatingActionButton: argument == 'doctor'
+            ? FloatingActionButton(
+                onPressed: () {
+                  showModalBottomSheet(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return Container(
+                        // height: 562.h,
+                        width: 430.w,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(16.0),
                         ),
-                        TextFormField(
-                            decoration: InputDecoration(
-                          label: Text(AppWords.name.tr),
-                        )),
-                        TextFormField(
-                            decoration: InputDecoration(
-                          label: Text(AppWords.dose.tr),
-                        )),
-                        TextFormField(
-                            decoration: InputDecoration(
-                          label: Text(AppWords.pillDosage.tr),
-                        )),
-                        TextFormField(
-                            decoration: InputDecoration(
-                          label: Text(AppWords.program.tr),
-                        )),
-                        const SizedBox(height: 10.0),
-                        Text(
-                          AppWords.shape.tr,
+                        padding: const EdgeInsets.all(16.0),
+                        child: SingleChildScrollView(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.min,
+                            children: <Widget>[
+                              Row(
+                                children: [
+                                  Text(
+                                    AppWords.addNewMedicine.tr,
+                                    style: AppTextStyle.textStyle24bold,
+                                  ),
+                                  const Spacer(),
+                                  IconButton(
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                    },
+                                    icon: const Icon(
+                                      Icons.close,
+                                    ),
+                                  )
+                                ],
+                              ),
+                              TextFormField(
+                                  decoration: InputDecoration(
+                                label: Text(AppWords.name.tr),
+                              )),
+                              TextFormField(
+                                  decoration: InputDecoration(
+                                label: Text(AppWords.dose.tr),
+                              )),
+                              TextFormField(
+                                  decoration: InputDecoration(
+                                label: Text(AppWords.pillDosage.tr),
+                              )),
+                              TextFormField(
+                                  decoration: InputDecoration(
+                                label: Text(AppWords.program.tr),
+                              )),
+                              const SizedBox(height: 10.0),
+                              Text(
+                                AppWords.shape.tr,
+                              ),
+                              Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Image.asset(
+                                      AppImages.rememberme1,
+                                      color: Colors.grey,
+                                    ),
+                                    Image.asset(
+                                      AppImages.rememberme2,
+                                      color: Colors.grey,
+                                    ),
+                                    Image.asset(
+                                      AppImages.rememberme3,
+                                      color: Colors.grey,
+                                    ),
+                                  ]),
+                              const SizedBox(height: 50.0),
+                              CustomButton(
+                                title: 'Add',
+                                style: AppTextStyle.textStyle20bold
+                                    .copyWith(color: AppColors.backgroundColor),
+                              )
+                            ],
+                          ),
                         ),
-                        Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Image.asset(
-                                AppImages.rememberme1,
-                                color: Colors.grey,
-                              ),
-                              Image.asset(
-                                AppImages.rememberme2,
-                                color: Colors.grey,
-                              ),
-                              Image.asset(
-                                AppImages.rememberme3,
-                                color: Colors.grey,
-                              ),
-                            ]),
-                        const SizedBox(height: 50.0),
-                        CustomButton(
-                          title: AppWords.addSchedual.tr,
-                          style: AppTextStyle.textStyle20bold
-                              .copyWith(color: AppColors.backgroundColor),
-                        )
-                      ],
-                    ),
-                  ),
-                );
-              },
-            );
-          },
-          backgroundColor: AppColors.primaryColor,
-          child: const Icon(
-            Icons.add,
-            color: AppColors.backgroundColor,
-          ),
-        ),
+                      );
+                    },
+                  );
+                },
+                backgroundColor: AppColors.textColor,
+                shape: CircleBorder(),
+                child: const Icon(
+                  Icons.add,
+                  color: AppColors.backgroundColor,
+                ),
+              )
+            : SizedBox(),
         backgroundColor: AppColors.primaryColor,
         body: SingleChildScrollView(
           child: Column(children: [
@@ -223,20 +232,39 @@ class _MedicineReminderState extends State<MedicineReminder>
                       ]),
                   Expanded(
                     child: TabBarView(children: [
-                      GridView.builder(
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,
-                            crossAxisSpacing: 1,
-                            mainAxisSpacing: .5,
-                            childAspectRatio: 1.5,
+                      Column(
+                        children: [
+                          Expanded(
+                            child: GridView.builder(
+                                gridDelegate:
+                                    const SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 2,
+                                  crossAxisSpacing: 1,
+                                  mainAxisSpacing: .5,
+                                  childAspectRatio: 1.5,
+                                ),
+                                itemCount: 6,
+                                itemBuilder: (BuildContext context, int index) {
+                                  return CustomGridView(
+                                    reminder: reminder[index],
+                                  );
+                                }),
                           ),
-                          itemCount: 6,
-                          itemBuilder: (BuildContext context, int index) {
-                            return CustomGridView(
-                              reminder: reminder[index],
-                            );
-                          }),
+                          argument == 'doctor'
+                              ? CustomButton(
+                                  onPress: () {
+                                    goToScreen(
+                                        screenNames:
+                                            ScreenNames.prescriptionScreen);
+                                  },
+                                  title: 'Create prescription',
+                                  style: AppTextStyle.textStyle20bold.copyWith(
+                                      color: AppColors.backgroundColor),
+                                )
+                              : SizedBox(),
+                          const SizedBox(height: 5),
+                        ],
+                      ),
                       Container(
                         child: const Center(child: Text('sunday')),
                       ),

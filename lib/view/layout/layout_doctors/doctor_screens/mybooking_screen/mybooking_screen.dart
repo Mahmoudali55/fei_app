@@ -1,4 +1,6 @@
+import 'package:fei_app/helper/routes/routes.dart';
 import 'package:fei_app/helper/utils/app_colors.dart';
+import 'package:fei_app/helper/utils/app_images.dart';
 import 'package:fei_app/helper/utils/app_textstyle.dart';
 import 'package:fei_app/helper/utils/app_word.dart';
 import 'package:fei_app/view/customs_widgets/custom_button/back_button.dart';
@@ -9,9 +11,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_utils/get_utils.dart';
 
-class bookingScreen extends StatelessWidget {
+class bookingScreen extends StatefulWidget {
   const bookingScreen({super.key});
 
+  @override
+  State<bookingScreen> createState() => _bookingScreenState();
+}
+
+class _bookingScreenState extends State<bookingScreen> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -52,6 +59,10 @@ class bookingScreen extends StatelessWidget {
                   ...List.generate(
                       10,
                       (index) => UnCommingAppointment(
+                            confirammassage: () {
+                              confirammassage(context);
+                            },
+                            image: AppImages.patient,
                             screenNames: '',
                             isAccepted: true,
                             titlebutton1: AppWords.confirm.tr,
@@ -64,6 +75,7 @@ class bookingScreen extends StatelessWidget {
                 ...List.generate(
                     10,
                     (index) => UnCommingAppointment(
+                          image: AppImages.patient,
                           screenNames: '',
                           isAccepted: false,
                           titlebutton1: AppWords.addComment.tr,
@@ -75,6 +87,7 @@ class bookingScreen extends StatelessWidget {
                 ...List.generate(
                     10,
                     (index) => UnCommingAppointment(
+                          image: AppImages.patient,
                           screenNames: '',
                           isAccepted: false,
                           titlebutton1: AppWords.addComment.tr,
@@ -84,5 +97,32 @@ class bookingScreen extends StatelessWidget {
             ]))
           ])),
     );
+  }
+
+  void confirammassage(BuildContext context) {
+    return setState(() {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          actions: [
+            Text('Appointment Confirmed ',
+                style: AppTextStyle.textStyle28semiBold
+                    .copyWith(color: AppColors.backgroundColor)),
+            const Center(
+              child: Icon(
+                Icons.check_sharp,
+                size: 80,
+                color: AppColors.textColor,
+              ),
+            ),
+          ],
+        ),
+      );
+      Future.delayed(const Duration(seconds: 3), () {
+        goToScreen(screenNames: ScreenNames.prescriptionsScreen);
+      });
+    });
   }
 }

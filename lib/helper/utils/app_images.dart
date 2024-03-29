@@ -34,6 +34,7 @@ class AppImages {
   static String mededicineReminder = '${imagesPath}medicaineReminder.png';
 
   static String schedul = '${imagesPath}schedul.png';
+  static String appointment = '${imagesPath}appointment.png';
   static String changepassword = '${imagesPath}Changepassword.png';
   static String confirmPassword = '${imagesPath}Confirmpassword.png';
   static String medicine = '${imagesPath}medican.png';

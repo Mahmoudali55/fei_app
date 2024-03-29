@@ -9,6 +9,7 @@ class MenuItem extends StatefulWidget {
   final String title;
   final String? image;
   final Color? color;
+  final Color? imagecolor;
   final TextStyle textStyle;
   final Function()? onTap;
   const MenuItem({
@@ -18,6 +19,7 @@ class MenuItem extends StatefulWidget {
     this.color,
     required this.textStyle,
     this.onTap,
+    this.imagecolor,
   });
 
   @override
@@ -53,6 +55,7 @@ class _MenuItemState extends State<MenuItem> {
                 scale: .9,
                 child: Image.asset(
                   widget.image!,
+                  color: widget.imagecolor,
                 ),
               )
             : null,
@@ -112,6 +115,7 @@ class _ExpandedMenuItemState extends State<ExpandedMenuItem> {
                 scale: .9,
                 child: Image.asset(
                   widget.image!,
+                  color: AppColors.textColor,
                 ),
               )
             : null,

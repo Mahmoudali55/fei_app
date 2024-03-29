@@ -36,7 +36,7 @@ class CustomContactUs extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      isArabic ? 'مساعدة العملاء' : 'Customer Support',
+                      'Customer Support',
                       style: AppTextStyle.textStyle22medium,
                     ),
                     ListTile(
@@ -49,7 +49,7 @@ class CustomContactUs extends StatelessWidget {
                           ),
                         ),
                         title: Text(
-                          isArabic ? 'رقم الهاتف :' : 'Contact Number :',
+                          'Contact Number :',
                           style: AppTextStyle.textStyle18regular
                               .copyWith(color: Colors.grey),
                         ),
@@ -69,7 +69,7 @@ class CustomContactUs extends StatelessWidget {
                           ),
                         ),
                         title: Text(
-                          isArabic ? 'البريد الإلكتروني :' : 'Email Address:',
+                          'Email Address:',
                           style: AppTextStyle.textStyle18regular
                               .copyWith(color: Colors.grey),
                         ),
@@ -83,7 +83,7 @@ class CustomContactUs extends StatelessWidget {
                       thickness: 1,
                     ),
                     Text(
-                      isArabic ? 'مساعدة التواصل الاجتماعي' : 'Social Media',
+                      'Social Media',
                       style: AppTextStyle.textStyle22medium,
                     ),
                     ListTile(
@@ -91,7 +91,7 @@ class CustomContactUs extends StatelessWidget {
                           AppImages.facebook,
                         ),
                         title: Text(
-                          isArabic ? 'فيسبوك :' : 'Facebook ',
+                          'Facebook ',
                           style: AppTextStyle.textStyle18regular
                               .copyWith(color: Colors.grey),
                         ),
@@ -105,7 +105,7 @@ class CustomContactUs extends StatelessWidget {
                           AppImages.instagram,
                         ),
                         title: Text(
-                          isArabic ? 'انستجرام :' : 'Instagram ',
+                          'Instagram ',
                           style: AppTextStyle.textStyle18regular
                               .copyWith(color: Colors.grey),
                         ),
@@ -119,7 +119,7 @@ class CustomContactUs extends StatelessWidget {
                           AppImages.x,
                         ),
                         title: Text(
-                          isArabic ? 'تويتر :' : 'X ',
+                          'X ',
                           style: AppTextStyle.textStyle18regular
                               .copyWith(color: Colors.grey),
                         ),

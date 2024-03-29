@@ -11,16 +11,18 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class CustomItemProfile extends StatelessWidget {
-  const CustomItemProfile(
-      {super.key,
-      required this.itemProfileModel,
-      required this.buttonTitle,
-      required this.specialist,
-      this.onPress});
+  const CustomItemProfile({
+    super.key,
+    required this.itemProfileModel,
+    required this.buttonTitle,
+    required this.specialist,
+    this.onPress,
+  });
   final String buttonTitle;
   final String specialist;
   final CustomItemProfileModel itemProfileModel;
   final Function()? onPress;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -133,12 +135,34 @@ class CustomItemProfile extends StatelessWidget {
                     style: AppTextStyle.textStyle15regular
                         .copyWith(color: const Color(0xff515050)),
                   ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
+                  Wrap(direction: Axis.horizontal, spacing: 10, children: [
+                    ...List.generate(
+                        //5 is the number of items in the list 'length'
+                        //if 10 is the number of items in the list
+                        10 > 6 ? 7 : 7,
+                        (index) => Container(
+                            width: 40,
+                            height: 40,
+                            decoration: BoxDecoration(
+                              color: index == 6
+                                  ? AppColors.primaryColor
+                                  : AppColors.backgroundColor,
+                              image: DecorationImage(
+                                  image: AssetImage(
+                                      index == 6 ? '' : AppImages.patient),
+                                  fit: BoxFit.fill),
+                              shape: BoxShape.circle,
+                            ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(' ${index == 6 ? '  ${10 - 6} +' : ''}',
+                                    style: AppTextStyle.textStyle18medium
+                                        .copyWith(
+                                            color: AppColors.backgroundColor)),
+                              ],
+                            )))
+                  ]),
                   CustomButton(
                     style: AppTextStyle.textStyle24medium
                         .copyWith(color: AppColors.backgroundColor),

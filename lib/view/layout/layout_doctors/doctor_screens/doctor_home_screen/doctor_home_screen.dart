@@ -35,7 +35,7 @@ class _HomeScreenState extends State<DoctorHomeScreen> {
       title: AppWords.plans.tr,
       image: AppImages.plane,
       onTap: () {
-        goToScreen(screenNames: ScreenNames.medicineReminder);
+        goToScreen(screenNames: ScreenNames.medicineReminderDoctor);
       },
     ),
     CustomServicesModel(
@@ -131,7 +131,7 @@ class _HomeScreenState extends State<DoctorHomeScreen> {
                   const Spacer(),
                   GestureDetector(
                     onTap: () {
-                      goToScreen(screenNames: ScreenNames.sechdualedSurgries);
+                      goToScreen(screenNames: ScreenNames.bookingScreen);
                     },
                     child: Text(
                       AppWords.seeall.tr,
@@ -145,6 +145,10 @@ class _HomeScreenState extends State<DoctorHomeScreen> {
                 height: 15.h,
               ),
               UnCommingAppointment(
+                confirammassage: () {
+                  confirammassage(context);
+                },
+                image: AppImages.patient,
                 titlebutton1: AppWords.confirm.tr,
                 titlebutton2: AppWords.cancel.tr,
                 isAccepted: true,
@@ -162,7 +166,7 @@ class _HomeScreenState extends State<DoctorHomeScreen> {
                   const Spacer(),
                   InkWell(
                     onTap: () {
-                      goToScreen(screenNames: ScreenNames.hospitalScreen);
+                      goToScreen(screenNames: ScreenNames.patientScreen);
                     },
                     child: Text(
                       AppWords.seeall.tr,
@@ -186,5 +190,32 @@ class _HomeScreenState extends State<DoctorHomeScreen> {
             ]),
           ),
         ));
+  }
+
+  void confirammassage(BuildContext context) {
+    return setState(() {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          actions: [
+            Text('Appointment Confirmed ',
+                style: AppTextStyle.textStyle28semiBold
+                    .copyWith(color: AppColors.backgroundColor)),
+            const Center(
+              child: Icon(
+                Icons.check_sharp,
+                size: 80,
+                color: AppColors.textColor,
+              ),
+            ),
+          ],
+        ),
+      );
+      Future.delayed(const Duration(seconds: 3), () {
+        goToScreen(screenNames: ScreenNames.prescriptionsScreen);
+      });
+    });
   }
 }

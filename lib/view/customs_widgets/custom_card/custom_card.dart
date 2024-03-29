@@ -1,14 +1,11 @@
 import 'package:fei_app/helper/model/custom_card_model.dart';
 import 'package:fei_app/helper/utils/app_colors.dart';
 import 'package:fei_app/helper/utils/app_textstyle.dart';
-import 'package:fei_app/view/customs_widgets/custom_button/custom_button.dart';
-import 'package:fei_app/view/layout/home_screen/widgets/rate.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
+
 import 'package:get/get.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 
 class CustomCard extends StatelessWidget {
   const CustomCard({super.key, required this.cardModel});
